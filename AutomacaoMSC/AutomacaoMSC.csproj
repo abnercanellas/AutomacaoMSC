@@ -41,6 +41,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -76,12 +77,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CustomMarshalers" />
-    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -100,11 +96,17 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FmInstaladores.cs">
+    <Compile Include="FmSelecOp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmInstaladores.Designer.cs">
-      <DependentUpon>FmInstaladores.cs</DependentUpon>
+    <Compile Include="FmSelecOp.Designer.cs">
+      <DependentUpon>FmSelecOp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmMigracao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmMigracao.Designer.cs">
+      <DependentUpon>FmMigracao.cs</DependentUpon>
     </Compile>
     <Compile Include="Metodos.cs" />
     <Compile Include="FmMain.cs">
@@ -119,28 +121,28 @@
     <Compile Include="FmHost.Designer.cs">
       <DependentUpon>FmHost.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmAviso.cs">
+    <Compile Include="FmFeito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmAviso.Designer.cs">
-      <DependentUpon>FmAviso.cs</DependentUpon>
+    <Compile Include="FmFeito.Designer.cs">
+      <DependentUpon>FmFeito.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FmMain.pt-BR.resx">
-      <DependentUpon>FmMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FmMain.resx">
       <DependentUpon>FmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FmHost.resx">
       <DependentUpon>FmHost.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmAviso.resx">
-      <DependentUpon>FmAviso.cs</DependentUpon>
+    <EmbeddedResource Include="FmFeito.resx">
+      <DependentUpon>FmFeito.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmInstaladores.resx">
-      <DependentUpon>FmInstaladores.cs</DependentUpon>
+    <EmbeddedResource Include="FmSelecOp.resx">
+      <DependentUpon>FmSelecOp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmMigracao.resx">
+      <DependentUpon>FmMigracao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

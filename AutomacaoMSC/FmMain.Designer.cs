@@ -1,18 +1,12 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace AutomacaoMSC
 {
     partial class AutomacaoMSC
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,12 +16,6 @@ namespace AutomacaoMSC
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutomacaoMSC));
@@ -36,8 +24,8 @@ namespace AutomacaoMSC
             this.lbMSC = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btTodos = new System.Windows.Forms.Button();
-            this.btNenhum = new System.Windows.Forms.Button();
+            this.btCompleta = new System.Windows.Forms.Button();
+            this.btLimpar = new System.Windows.Forms.Button();
             this.cbInstalar = new System.Windows.Forms.CheckBox();
             this.cbHost = new System.Windows.Forms.CheckBox();
             this.cbDominio = new System.Windows.Forms.CheckBox();
@@ -48,8 +36,14 @@ namespace AutomacaoMSC
             this.tbLog = new System.Windows.Forms.TextBox();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabExecutar = new System.Windows.Forms.TabPage();
+            this.lbSistema = new System.Windows.Forms.Label();
+            this.lbArquitetura = new System.Windows.Forms.Label();
             this.ImgInpeMain = new System.Windows.Forms.Panel();
             this.tabSobre = new System.Windows.Forms.TabPage();
+            this.lbGit = new System.Windows.Forms.LinkLabel();
+            this.lbPreGit = new System.Windows.Forms.Label();
+            this.lbAutor = new System.Windows.Forms.Label();
+            this.ldDescricao = new System.Windows.Forms.Label();
             this.ImgInpeSobre = new System.Windows.Forms.Panel();
             this.lbMSCSobre = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -65,8 +59,9 @@ namespace AutomacaoMSC
             this.btExecutar.FlatAppearance.BorderColor = System.Drawing.SystemColors.MenuHighlight;
             this.btExecutar.FlatAppearance.BorderSize = 0;
             this.btExecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btExecutar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExecutar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btExecutar.Location = new System.Drawing.Point(351, 353);
+            this.btExecutar.Location = new System.Drawing.Point(351, 346);
             this.btExecutar.Name = "btExecutar";
             this.btExecutar.Size = new System.Drawing.Size(75, 23);
             this.btExecutar.TabIndex = 4;
@@ -80,8 +75,9 @@ namespace AutomacaoMSC
             this.btSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSair.FlatAppearance.BorderSize = 0;
             this.btSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSair.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSair.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btSair.Location = new System.Drawing.Point(270, 353);
+            this.btSair.Location = new System.Drawing.Point(270, 346);
             this.btSair.Name = "btSair";
             this.btSair.Size = new System.Drawing.Size(75, 23);
             this.btSair.TabIndex = 6;
@@ -104,7 +100,7 @@ namespace AutomacaoMSC
             // 
             this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.progressBar1.Enabled = false;
-            this.progressBar1.Location = new System.Drawing.Point(0, 353);
+            this.progressBar1.Location = new System.Drawing.Point(14, 346);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(169, 20);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -113,52 +109,55 @@ namespace AutomacaoMSC
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btTodos);
-            this.panel1.Controls.Add(this.btNenhum);
+            this.panel1.Controls.Add(this.btCompleta);
+            this.panel1.Controls.Add(this.btLimpar);
             this.panel1.Controls.Add(this.cbInstalar);
             this.panel1.Controls.Add(this.cbHost);
             this.panel1.Controls.Add(this.cbDominio);
             this.panel1.Controls.Add(this.cbRDP);
             this.panel1.Controls.Add(this.cbPerformance);
             this.panel1.Controls.Add(this.cbWSUS);
-            this.panel1.Location = new System.Drawing.Point(0, 83);
+            this.panel1.Location = new System.Drawing.Point(3, 103);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(436, 131);
             this.panel1.TabIndex = 2;
             // 
-            // btTodos
+            // btCompleta
             // 
-            this.btTodos.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btTodos.FlatAppearance.BorderSize = 0;
-            this.btTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btTodos.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btTodos.Location = new System.Drawing.Point(235, 12);
-            this.btTodos.Name = "btTodos";
-            this.btTodos.Size = new System.Drawing.Size(75, 23);
-            this.btTodos.TabIndex = 8;
-            this.btTodos.Text = "Todos";
-            this.btTodos.UseVisualStyleBackColor = false;
-            this.btTodos.Click += new System.EventHandler(this.BtTodos_Click);
+            this.btCompleta.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btCompleta.FlatAppearance.BorderSize = 0;
+            this.btCompleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCompleta.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCompleta.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btCompleta.Location = new System.Drawing.Point(222, 12);
+            this.btCompleta.Name = "btCompleta";
+            this.btCompleta.Size = new System.Drawing.Size(75, 23);
+            this.btCompleta.TabIndex = 8;
+            this.btCompleta.Text = "Completa";
+            this.btCompleta.UseVisualStyleBackColor = false;
+            this.btCompleta.Click += new System.EventHandler(this.BtTodos_Click);
             // 
-            // btNenhum
+            // btLimpar
             // 
-            this.btNenhum.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btNenhum.FlatAppearance.BorderSize = 0;
-            this.btNenhum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btNenhum.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btNenhum.Location = new System.Drawing.Point(131, 12);
-            this.btNenhum.Name = "btNenhum";
-            this.btNenhum.Size = new System.Drawing.Size(75, 23);
-            this.btNenhum.TabIndex = 7;
-            this.btNenhum.Text = "Nenhum";
-            this.btNenhum.UseVisualStyleBackColor = false;
-            this.btNenhum.Click += new System.EventHandler(this.BtNenhum_Click);
+            this.btLimpar.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btLimpar.FlatAppearance.BorderSize = 0;
+            this.btLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btLimpar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLimpar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btLimpar.Location = new System.Drawing.Point(127, 12);
+            this.btLimpar.Name = "btLimpar";
+            this.btLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btLimpar.TabIndex = 7;
+            this.btLimpar.Text = "Limpar";
+            this.btLimpar.UseVisualStyleBackColor = false;
+            this.btLimpar.Click += new System.EventHandler(this.BtNenhum_Click);
             // 
             // cbInstalar
             // 
             this.cbInstalar.Checked = true;
             this.cbInstalar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbInstalar.Location = new System.Drawing.Point(55, 100);
+            this.cbInstalar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbInstalar.Location = new System.Drawing.Point(42, 100);
             this.cbInstalar.Name = "cbInstalar";
             this.cbInstalar.Size = new System.Drawing.Size(124, 19);
             this.cbInstalar.TabIndex = 1;
@@ -169,9 +168,10 @@ namespace AutomacaoMSC
             // 
             this.cbHost.Checked = true;
             this.cbHost.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbHost.Location = new System.Drawing.Point(202, 75);
+            this.cbHost.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHost.Location = new System.Drawing.Point(189, 75);
             this.cbHost.Name = "cbHost";
-            this.cbHost.Size = new System.Drawing.Size(108, 19);
+            this.cbHost.Size = new System.Drawing.Size(140, 19);
             this.cbHost.TabIndex = 2;
             this.cbHost.Text = "Renomear Host";
             this.cbHost.UseVisualStyleBackColor = true;
@@ -180,9 +180,10 @@ namespace AutomacaoMSC
             // 
             this.cbDominio.Checked = true;
             this.cbDominio.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbDominio.Location = new System.Drawing.Point(202, 100);
+            this.cbDominio.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDominio.Location = new System.Drawing.Point(189, 100);
             this.cbDominio.Name = "cbDominio";
-            this.cbDominio.Size = new System.Drawing.Size(208, 19);
+            this.cbDominio.Size = new System.Drawing.Size(221, 19);
             this.cbDominio.TabIndex = 3;
             this.cbDominio.Text = "Ingressar no Dominio ad.lit.inpe.br";
             this.cbDominio.UseVisualStyleBackColor = true;
@@ -191,9 +192,10 @@ namespace AutomacaoMSC
             // 
             this.cbRDP.Checked = true;
             this.cbRDP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbRDP.Location = new System.Drawing.Point(55, 75);
+            this.cbRDP.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRDP.Location = new System.Drawing.Point(42, 75);
             this.cbRDP.Name = "cbRDP";
-            this.cbRDP.Size = new System.Drawing.Size(82, 19);
+            this.cbRDP.Size = new System.Drawing.Size(91, 19);
             this.cbRDP.TabIndex = 4;
             this.cbRDP.Text = "Ativar RDP";
             this.cbRDP.UseVisualStyleBackColor = true;
@@ -202,9 +204,10 @@ namespace AutomacaoMSC
             // 
             this.cbPerformance.Checked = true;
             this.cbPerformance.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbPerformance.Location = new System.Drawing.Point(202, 50);
+            this.cbPerformance.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPerformance.Location = new System.Drawing.Point(189, 50);
             this.cbPerformance.Name = "cbPerformance";
-            this.cbPerformance.Size = new System.Drawing.Size(199, 19);
+            this.cbPerformance.Size = new System.Drawing.Size(221, 19);
             this.cbPerformance.TabIndex = 5;
             this.cbPerformance.Text = "Ativar plano de alta performance";
             this.cbPerformance.UseVisualStyleBackColor = true;
@@ -213,7 +216,8 @@ namespace AutomacaoMSC
             // 
             this.cbWSUS.Checked = true;
             this.cbWSUS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbWSUS.Location = new System.Drawing.Point(55, 50);
+            this.cbWSUS.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbWSUS.Location = new System.Drawing.Point(42, 50);
             this.cbWSUS.Name = "cbWSUS";
             this.cbWSUS.Size = new System.Drawing.Size(117, 19);
             this.cbWSUS.TabIndex = 6;
@@ -224,27 +228,33 @@ namespace AutomacaoMSC
             // 
             this.lbVersao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbVersao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.lbVersao.Location = new System.Drawing.Point(111, 322);
+            this.lbVersao.Location = new System.Drawing.Point(116, 319);
             this.lbVersao.Name = "lbVersao";
-            this.lbVersao.Size = new System.Drawing.Size(218, 54);
+            this.lbVersao.Size = new System.Drawing.Size(218, 23);
             this.lbVersao.TabIndex = 0;
-            this.lbVersao.Text = "BETA v0.00000013548  AbnerCanellas";
+            this.lbVersao.Text = "BETA v0.00000AGORAVAI";
             this.lbVersao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbLog
             // 
-            this.tbLog.Location = new System.Drawing.Point(0, 215);
+            this.tbLog.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLog.Location = new System.Drawing.Point(33, 244);
             this.tbLog.Multiline = true;
             this.tbLog.Name = "tbLog";
             this.tbLog.ReadOnly = true;
-            this.tbLog.Size = new System.Drawing.Size(436, 132);
+            this.tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbLog.Size = new System.Drawing.Size(378, 92);
             this.tbLog.TabIndex = 6;
             this.tbLog.Visible = false;
             // 
             // tabMain
             // 
+            this.tabMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabMain.Controls.Add(this.tabExecutar);
             this.tabMain.Controls.Add(this.tabSobre);
+            this.tabMain.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabMain.Location = new System.Drawing.Point(12, 5);
             this.tabMain.Multiline = true;
             this.tabMain.Name = "tabMain";
@@ -254,7 +264,9 @@ namespace AutomacaoMSC
             // 
             // tabExecutar
             // 
-            this.tabExecutar.BackColor = System.Drawing.Color.Transparent;
+            this.tabExecutar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabExecutar.Controls.Add(this.lbSistema);
+            this.tabExecutar.Controls.Add(this.lbArquitetura);
             this.tabExecutar.Controls.Add(this.ImgInpeMain);
             this.tabExecutar.Controls.Add(this.tbLog);
             this.tabExecutar.Controls.Add(this.btExecutar);
@@ -262,12 +274,32 @@ namespace AutomacaoMSC
             this.tabExecutar.Controls.Add(this.btSair);
             this.tabExecutar.Controls.Add(this.panel1);
             this.tabExecutar.Controls.Add(this.lbMSC);
-            this.tabExecutar.Location = new System.Drawing.Point(4, 22);
+            this.tabExecutar.Location = new System.Drawing.Point(4, 25);
             this.tabExecutar.Name = "tabExecutar";
             this.tabExecutar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabExecutar.Size = new System.Drawing.Size(442, 379);
+            this.tabExecutar.Size = new System.Drawing.Size(442, 376);
             this.tabExecutar.TabIndex = 1;
             this.tabExecutar.Text = "Executar";
+            // 
+            // lbSistema
+            // 
+            this.lbSistema.AutoSize = true;
+            this.lbSistema.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSistema.Location = new System.Drawing.Point(202, 82);
+            this.lbSistema.Name = "lbSistema";
+            this.lbSistema.Size = new System.Drawing.Size(61, 17);
+            this.lbSistema.TabIndex = 9;
+            this.lbSistema.Text = "Sistema: ";
+            // 
+            // lbArquitetura
+            // 
+            this.lbArquitetura.AutoSize = true;
+            this.lbArquitetura.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbArquitetura.Location = new System.Drawing.Point(89, 81);
+            this.lbArquitetura.Name = "lbArquitetura";
+            this.lbArquitetura.Size = new System.Drawing.Size(82, 17);
+            this.lbArquitetura.TabIndex = 8;
+            this.lbArquitetura.Text = "Arquitetura: ";
             // 
             // ImgInpeMain
             // 
@@ -280,16 +312,61 @@ namespace AutomacaoMSC
             // 
             // tabSobre
             // 
+            this.tabSobre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabSobre.Controls.Add(this.lbGit);
+            this.tabSobre.Controls.Add(this.lbPreGit);
+            this.tabSobre.Controls.Add(this.lbAutor);
+            this.tabSobre.Controls.Add(this.ldDescricao);
             this.tabSobre.Controls.Add(this.lbVersao);
             this.tabSobre.Controls.Add(this.ImgInpeSobre);
             this.tabSobre.Controls.Add(this.lbMSCSobre);
-            this.tabSobre.Location = new System.Drawing.Point(4, 22);
+            this.tabSobre.Location = new System.Drawing.Point(4, 25);
             this.tabSobre.Name = "tabSobre";
             this.tabSobre.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSobre.Size = new System.Drawing.Size(442, 379);
+            this.tabSobre.Size = new System.Drawing.Size(442, 376);
             this.tabSobre.TabIndex = 0;
             this.tabSobre.Text = "Sobre";
-            this.tabSobre.UseVisualStyleBackColor = true;
+            // 
+            // lbGit
+            // 
+            this.lbGit.AutoSize = true;
+            this.lbGit.Location = new System.Drawing.Point(306, 272);
+            this.lbGit.Name = "lbGit";
+            this.lbGit.Size = new System.Drawing.Size(47, 16);
+            this.lbGit.TabIndex = 13;
+            this.lbGit.TabStop = true;
+            this.lbGit.Text = "GitHub";
+            this.lbGit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LbGit_LinkClicked);
+            // 
+            // lbPreGit
+            // 
+            this.lbPreGit.AutoSize = true;
+            this.lbPreGit.Location = new System.Drawing.Point(87, 272);
+            this.lbPreGit.Name = "lbPreGit";
+            this.lbPreGit.Size = new System.Drawing.Size(225, 16);
+            this.lbPreGit.TabIndex = 12;
+            this.lbPreGit.Text = "O código aberto pode ser acessado no ";
+            this.lbPreGit.Click += new System.EventHandler(this.LbPreGit_Click);
+            // 
+            // lbAutor
+            // 
+            this.lbAutor.AutoSize = true;
+            this.lbAutor.Location = new System.Drawing.Point(175, 342);
+            this.lbAutor.Name = "lbAutor";
+            this.lbAutor.Size = new System.Drawing.Size(90, 16);
+            this.lbAutor.TabIndex = 11;
+            this.lbAutor.Text = "Abner Canellas";
+            // 
+            // ldDescricao
+            // 
+            this.ldDescricao.AutoSize = true;
+            this.ldDescricao.Location = new System.Drawing.Point(77, 201);
+            this.ldDescricao.Name = "ldDescricao";
+            this.ldDescricao.Size = new System.Drawing.Size(282, 48);
+            this.ldDescricao.TabIndex = 10;
+            this.ldDescricao.Text = "Esse app foi feito com intuito de \nagilizar a configuração das maquinas atualizad" +
+    "as \n pela equipe MSC ";
+            this.ldDescricao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ImgInpeSobre
             // 
@@ -329,32 +406,38 @@ namespace AutomacaoMSC
             this.tabExecutar.ResumeLayout(false);
             this.tabExecutar.PerformLayout();
             this.tabSobre.ResumeLayout(false);
+            this.tabSobre.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
-        #endregion
-        private System.Windows.Forms.Button btExecutar;
-        private System.Windows.Forms.Button btSair;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox cbInstalar;
-        private System.Windows.Forms.CheckBox cbHost;
-        private System.Windows.Forms.CheckBox cbDominio;
-        private System.Windows.Forms.CheckBox cbRDP;
-        private System.Windows.Forms.CheckBox cbPerformance;
-        private System.Windows.Forms.CheckBox cbWSUS;
-        private System.Windows.Forms.TextBox tbLog;
+        private Button btExecutar;
+        private Button btSair;
+        private ProgressBar progressBar1;
+        private Panel panel1;
+        public CheckBox cbInstalar;
+        public CheckBox cbHost;
+        public CheckBox cbDominio;
+        public CheckBox cbRDP;
+        public CheckBox cbPerformance;
+        public CheckBox cbWSUS;
+        private TextBox tbLog;
         private Label lbVersao;
         private Label lbMSC;
-        private Button btNenhum;
-        private Button btTodos;
+        private Button btLimpar;
+        private Button btCompleta;
         private TabControl tabMain;
         private TabPage tabExecutar;
         private TabPage tabSobre;
         private Panel ImgInpeMain;
         private Panel ImgInpeSobre;
         private Label lbMSCSobre;
+        private Label lbSistema;
+        private Label lbArquitetura;
+        private Label lbAutor;
+        private Label ldDescricao;
+        private LinkLabel lbGit;
+        private Label lbPreGit;
     }
 }
 

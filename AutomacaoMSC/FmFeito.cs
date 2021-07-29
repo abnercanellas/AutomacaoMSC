@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace AutomacaoMSC
 {
-    public partial class FmAviso : Form
+    public partial class FmFeito : Form
     {
-        public FmAviso()
+        public FmFeito()
         {
             InitializeComponent();
         }

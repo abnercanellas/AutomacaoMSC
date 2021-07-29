@@ -1,6 +1,6 @@
 ﻿namespace AutomacaoMSC
 {
-    partial class FmAviso
+    partial class FmFeito
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmFeito));
             this.lbFeito = new System.Windows.Forms.Label();
             this.btReiniciar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -88,7 +89,7 @@
             this.btSair3.UseVisualStyleBackColor = false;
             this.btSair3.Click += new System.EventHandler(this.BtSair3_Click);
             // 
-            // FmAviso
+            // FmFeito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,12 +98,13 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximumSize = new System.Drawing.Size(224, 159);
             this.MinimumSize = new System.Drawing.Size(224, 159);
-            this.Name = "FmAviso";
+            this.Name = "FmFeito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "E o Host, meu chapa?";
+            this.Text = "Dá-lheee";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
