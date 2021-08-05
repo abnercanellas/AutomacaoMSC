@@ -59,12 +59,12 @@ namespace AutomacaoMSC
             this.btExecutar.FlatAppearance.BorderColor = System.Drawing.SystemColors.MenuHighlight;
             this.btExecutar.FlatAppearance.BorderSize = 0;
             this.btExecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btExecutar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExecutar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExecutar.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btExecutar.Location = new System.Drawing.Point(351, 346);
             this.btExecutar.Name = "btExecutar";
             this.btExecutar.Size = new System.Drawing.Size(75, 23);
-            this.btExecutar.TabIndex = 4;
+            this.btExecutar.TabIndex = 11;
             this.btExecutar.Text = "Executar";
             this.btExecutar.UseVisualStyleBackColor = false;
             this.btExecutar.Click += new System.EventHandler(this.BtInstalar_Click);
@@ -75,19 +75,19 @@ namespace AutomacaoMSC
             this.btSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSair.FlatAppearance.BorderSize = 0;
             this.btSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btSair.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSair.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btSair.Location = new System.Drawing.Point(270, 346);
             this.btSair.Name = "btSair";
             this.btSair.Size = new System.Drawing.Size(75, 23);
-            this.btSair.TabIndex = 6;
+            this.btSair.TabIndex = 10;
             this.btSair.Text = "Sair";
             this.btSair.UseVisualStyleBackColor = false;
             this.btSair.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
             // lbMSC
             // 
-            this.lbMSC.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMSC.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMSC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbMSC.Location = new System.Drawing.Point(82, 6);
             this.lbMSC.Name = "lbMSC";
@@ -117,6 +117,7 @@ namespace AutomacaoMSC
             this.panel1.Controls.Add(this.cbRDP);
             this.panel1.Controls.Add(this.cbPerformance);
             this.panel1.Controls.Add(this.cbWSUS);
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(3, 103);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(436, 131);
@@ -127,12 +128,12 @@ namespace AutomacaoMSC
             this.btCompleta.BackColor = System.Drawing.Color.LightSlateGray;
             this.btCompleta.FlatAppearance.BorderSize = 0;
             this.btCompleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCompleta.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCompleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCompleta.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btCompleta.Location = new System.Drawing.Point(222, 12);
             this.btCompleta.Name = "btCompleta";
             this.btCompleta.Size = new System.Drawing.Size(75, 23);
-            this.btCompleta.TabIndex = 8;
+            this.btCompleta.TabIndex = 3;
             this.btCompleta.Text = "Completa";
             this.btCompleta.UseVisualStyleBackColor = false;
             this.btCompleta.Click += new System.EventHandler(this.BtTodos_Click);
@@ -142,12 +143,12 @@ namespace AutomacaoMSC
             this.btLimpar.BackColor = System.Drawing.Color.LightSlateGray;
             this.btLimpar.FlatAppearance.BorderSize = 0;
             this.btLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btLimpar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLimpar.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btLimpar.Location = new System.Drawing.Point(127, 12);
             this.btLimpar.Name = "btLimpar";
             this.btLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btLimpar.TabIndex = 7;
+            this.btLimpar.TabIndex = 2;
             this.btLimpar.Text = "Limpar";
             this.btLimpar.UseVisualStyleBackColor = false;
             this.btLimpar.Click += new System.EventHandler(this.BtNenhum_Click);
@@ -156,11 +157,11 @@ namespace AutomacaoMSC
             // 
             this.cbInstalar.Checked = true;
             this.cbInstalar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbInstalar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbInstalar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbInstalar.Location = new System.Drawing.Point(42, 100);
             this.cbInstalar.Name = "cbInstalar";
             this.cbInstalar.Size = new System.Drawing.Size(124, 19);
-            this.cbInstalar.TabIndex = 1;
+            this.cbInstalar.TabIndex = 6;
             this.cbInstalar.Text = "Instalar programas";
             this.cbInstalar.UseVisualStyleBackColor = true;
             // 
@@ -168,11 +169,11 @@ namespace AutomacaoMSC
             // 
             this.cbHost.Checked = true;
             this.cbHost.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbHost.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHost.Location = new System.Drawing.Point(189, 75);
             this.cbHost.Name = "cbHost";
             this.cbHost.Size = new System.Drawing.Size(140, 19);
-            this.cbHost.TabIndex = 2;
+            this.cbHost.TabIndex = 8;
             this.cbHost.Text = "Renomear Host";
             this.cbHost.UseVisualStyleBackColor = true;
             // 
@@ -180,11 +181,11 @@ namespace AutomacaoMSC
             // 
             this.cbDominio.Checked = true;
             this.cbDominio.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbDominio.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDominio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDominio.Location = new System.Drawing.Point(189, 100);
             this.cbDominio.Name = "cbDominio";
             this.cbDominio.Size = new System.Drawing.Size(221, 19);
-            this.cbDominio.TabIndex = 3;
+            this.cbDominio.TabIndex = 9;
             this.cbDominio.Text = "Ingressar no Dominio ad.lit.inpe.br";
             this.cbDominio.UseVisualStyleBackColor = true;
             // 
@@ -192,11 +193,11 @@ namespace AutomacaoMSC
             // 
             this.cbRDP.Checked = true;
             this.cbRDP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbRDP.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRDP.Location = new System.Drawing.Point(42, 75);
             this.cbRDP.Name = "cbRDP";
             this.cbRDP.Size = new System.Drawing.Size(91, 19);
-            this.cbRDP.TabIndex = 4;
+            this.cbRDP.TabIndex = 5;
             this.cbRDP.Text = "Ativar RDP";
             this.cbRDP.UseVisualStyleBackColor = true;
             // 
@@ -204,11 +205,11 @@ namespace AutomacaoMSC
             // 
             this.cbPerformance.Checked = true;
             this.cbPerformance.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbPerformance.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPerformance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPerformance.Location = new System.Drawing.Point(189, 50);
             this.cbPerformance.Name = "cbPerformance";
             this.cbPerformance.Size = new System.Drawing.Size(221, 19);
-            this.cbPerformance.TabIndex = 5;
+            this.cbPerformance.TabIndex = 7;
             this.cbPerformance.Text = "Ativar plano de alta performance";
             this.cbPerformance.UseVisualStyleBackColor = true;
             // 
@@ -216,19 +217,19 @@ namespace AutomacaoMSC
             // 
             this.cbWSUS.Checked = true;
             this.cbWSUS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbWSUS.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbWSUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbWSUS.Location = new System.Drawing.Point(42, 50);
             this.cbWSUS.Name = "cbWSUS";
             this.cbWSUS.Size = new System.Drawing.Size(117, 19);
-            this.cbWSUS.TabIndex = 6;
+            this.cbWSUS.TabIndex = 4;
             this.cbWSUS.Text = "Configurar WSUS";
             this.cbWSUS.UseVisualStyleBackColor = true;
             // 
             // lbVersao
             // 
-            this.lbVersao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVersao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbVersao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.lbVersao.Location = new System.Drawing.Point(116, 319);
+            this.lbVersao.Location = new System.Drawing.Point(118, 319);
             this.lbVersao.Name = "lbVersao";
             this.lbVersao.Size = new System.Drawing.Size(218, 23);
             this.lbVersao.TabIndex = 0;
@@ -237,7 +238,7 @@ namespace AutomacaoMSC
             // 
             // tbLog
             // 
-            this.tbLog.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbLog.Location = new System.Drawing.Point(33, 244);
             this.tbLog.Multiline = true;
             this.tbLog.Name = "tbLog";
@@ -254,13 +255,13 @@ namespace AutomacaoMSC
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabMain.Controls.Add(this.tabExecutar);
             this.tabMain.Controls.Add(this.tabSobre);
-            this.tabMain.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabMain.Location = new System.Drawing.Point(12, 5);
             this.tabMain.Multiline = true;
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(450, 405);
-            this.tabMain.TabIndex = 7;
+            this.tabMain.TabIndex = 1;
             // 
             // tabExecutar
             // 
@@ -274,30 +275,30 @@ namespace AutomacaoMSC
             this.tabExecutar.Controls.Add(this.btSair);
             this.tabExecutar.Controls.Add(this.panel1);
             this.tabExecutar.Controls.Add(this.lbMSC);
-            this.tabExecutar.Location = new System.Drawing.Point(4, 25);
+            this.tabExecutar.Location = new System.Drawing.Point(4, 22);
             this.tabExecutar.Name = "tabExecutar";
             this.tabExecutar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabExecutar.Size = new System.Drawing.Size(442, 376);
+            this.tabExecutar.Size = new System.Drawing.Size(442, 379);
             this.tabExecutar.TabIndex = 1;
             this.tabExecutar.Text = "Executar";
             // 
             // lbSistema
             // 
             this.lbSistema.AutoSize = true;
-            this.lbSistema.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSistema.Location = new System.Drawing.Point(202, 82);
             this.lbSistema.Name = "lbSistema";
-            this.lbSistema.Size = new System.Drawing.Size(61, 17);
+            this.lbSistema.Size = new System.Drawing.Size(50, 13);
             this.lbSistema.TabIndex = 9;
             this.lbSistema.Text = "Sistema: ";
             // 
             // lbArquitetura
             // 
             this.lbArquitetura.AutoSize = true;
-            this.lbArquitetura.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbArquitetura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbArquitetura.Location = new System.Drawing.Point(89, 81);
             this.lbArquitetura.Name = "lbArquitetura";
-            this.lbArquitetura.Size = new System.Drawing.Size(82, 17);
+            this.lbArquitetura.Size = new System.Drawing.Size(64, 13);
             this.lbArquitetura.TabIndex = 8;
             this.lbArquitetura.Text = "Arquitetura: ";
             // 
@@ -320,19 +321,20 @@ namespace AutomacaoMSC
             this.tabSobre.Controls.Add(this.lbVersao);
             this.tabSobre.Controls.Add(this.ImgInpeSobre);
             this.tabSobre.Controls.Add(this.lbMSCSobre);
-            this.tabSobre.Location = new System.Drawing.Point(4, 25);
+            this.tabSobre.Location = new System.Drawing.Point(4, 22);
             this.tabSobre.Name = "tabSobre";
             this.tabSobre.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSobre.Size = new System.Drawing.Size(442, 376);
+            this.tabSobre.Size = new System.Drawing.Size(442, 379);
             this.tabSobre.TabIndex = 0;
             this.tabSobre.Text = "Sobre";
             // 
             // lbGit
             // 
+            this.lbGit.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGit.AutoSize = true;
-            this.lbGit.Location = new System.Drawing.Point(306, 272);
+            this.lbGit.Location = new System.Drawing.Point(303, 274);
             this.lbGit.Name = "lbGit";
-            this.lbGit.Size = new System.Drawing.Size(47, 16);
+            this.lbGit.Size = new System.Drawing.Size(40, 13);
             this.lbGit.TabIndex = 13;
             this.lbGit.TabStop = true;
             this.lbGit.Text = "GitHub";
@@ -340,29 +342,32 @@ namespace AutomacaoMSC
             // 
             // lbPreGit
             // 
+            this.lbPreGit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPreGit.AutoSize = true;
-            this.lbPreGit.Location = new System.Drawing.Point(87, 272);
+            this.lbPreGit.Location = new System.Drawing.Point(114, 274);
             this.lbPreGit.Name = "lbPreGit";
-            this.lbPreGit.Size = new System.Drawing.Size(225, 16);
+            this.lbPreGit.Size = new System.Drawing.Size(194, 13);
             this.lbPreGit.TabIndex = 12;
             this.lbPreGit.Text = "O código aberto pode ser acessado no ";
-            this.lbPreGit.Click += new System.EventHandler(this.LbPreGit_Click);
             // 
             // lbAutor
             // 
             this.lbAutor.AutoSize = true;
-            this.lbAutor.Location = new System.Drawing.Point(175, 342);
+            this.lbAutor.Location = new System.Drawing.Point(189, 342);
             this.lbAutor.Name = "lbAutor";
-            this.lbAutor.Size = new System.Drawing.Size(90, 16);
+            this.lbAutor.Size = new System.Drawing.Size(78, 13);
             this.lbAutor.TabIndex = 11;
             this.lbAutor.Text = "Abner Canellas";
             // 
             // ldDescricao
             // 
+            this.ldDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ldDescricao.AutoSize = true;
-            this.ldDescricao.Location = new System.Drawing.Point(77, 201);
+            this.ldDescricao.Location = new System.Drawing.Point(110, 206);
             this.ldDescricao.Name = "ldDescricao";
-            this.ldDescricao.Size = new System.Drawing.Size(282, 48);
+            this.ldDescricao.Size = new System.Drawing.Size(240, 39);
             this.ldDescricao.TabIndex = 10;
             this.ldDescricao.Text = "Esse app foi feito com intuito de \nagilizar a configuração das maquinas atualizad" +
     "as \n pela equipe MSC ";
@@ -372,14 +377,14 @@ namespace AutomacaoMSC
             // 
             this.ImgInpeSobre.BackgroundImage = global::AutomacaoMSC.Properties.Resources.inpe_logo1;
             this.ImgInpeSobre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ImgInpeSobre.Location = new System.Drawing.Point(153, 6);
+            this.ImgInpeSobre.Location = new System.Drawing.Point(163, 6);
             this.ImgInpeSobre.Name = "ImgInpeSobre";
             this.ImgInpeSobre.Size = new System.Drawing.Size(122, 105);
             this.ImgInpeSobre.TabIndex = 9;
             // 
             // lbMSCSobre
             // 
-            this.lbMSCSobre.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMSCSobre.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMSCSobre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbMSCSobre.Location = new System.Drawing.Point(45, 114);
             this.lbMSCSobre.Name = "lbMSCSobre";

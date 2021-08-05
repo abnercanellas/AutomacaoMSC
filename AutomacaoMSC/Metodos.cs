@@ -130,21 +130,26 @@ namespace AutomacaoMSC
                 string file="", key="";
                 foreach(string exec in Directory.GetFiles(subDir))
                 {
-                    if (exec.ToLower().Contains("key") || exec.ToLower().Contains("serial"))
+                    if (exec.ToLower().Contains("serial"))
                     {
                         key = exec;
                     }
                     if (exec.ToLower().Contains("setup") || exec.ToLower().Contains("ninite"))
                     {
-                        file = exec;
+                        if (exec.ToLower().Contains(".exe") || exec.ToLower().Contains(".msi"))
+                        {
+                            file = exec;
+                        }
                     }
                 }
                 if (key != "")
                 {
                     try
                     {
-                        AddLog(tbLog, "Abrindo Key: " + Directory.GetParent(key).Name);
-                        FileExec(key, "");
+                        //AddLog(tbLog, "Abrindo Key: " + Directory.GetParent(key).Name);
+                        //FileExec(key, "");
+                        var content = File.ReadAllText(key);
+                        Clipboard.SetDataObject(content, false, 5, 200);
                     }
                     catch (System.ComponentModel.Win32Exception e)
                     {
@@ -175,7 +180,7 @@ namespace AutomacaoMSC
                 Process process = new Process();
                 {
                     process.StartInfo.FileName = filePath;
-                    process.StartInfo.Arguments = "/quiet ALLUSERS=1 " + args;
+                    process.StartInfo.Arguments = /*"/quiet ALLUSERS=1 " +*/ args;
                     process.EnableRaisingEvents = true;
                     process.Start();
                     process.WaitForExit();

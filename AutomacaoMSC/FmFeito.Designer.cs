@@ -39,11 +39,11 @@
             // lbFeito
             // 
             this.lbFeito.AutoSize = true;
-            this.lbFeito.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFeito.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFeito.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.lbFeito.Location = new System.Drawing.Point(63, 34);
+            this.lbFeito.Location = new System.Drawing.Point(54, 34);
             this.lbFeito.Name = "lbFeito";
-            this.lbFeito.Size = new System.Drawing.Size(79, 30);
+            this.lbFeito.Size = new System.Drawing.Size(97, 37);
             this.lbFeito.TabIndex = 0;
             this.lbFeito.Text = "Feito!";
             // 
@@ -53,7 +53,7 @@
             this.btReiniciar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btReiniciar.FlatAppearance.BorderSize = 0;
             this.btReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btReiniciar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btReiniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btReiniciar.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btReiniciar.Location = new System.Drawing.Point(111, 88);
             this.btReiniciar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -80,6 +80,7 @@
             this.btSair3.BackColor = System.Drawing.Color.LightSlateGray;
             this.btSair3.FlatAppearance.BorderSize = 0;
             this.btSair3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSair3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSair3.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btSair3.Location = new System.Drawing.Point(30, 88);
             this.btSair3.Name = "btSair3";

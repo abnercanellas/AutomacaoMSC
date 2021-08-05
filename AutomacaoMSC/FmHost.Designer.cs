@@ -27,24 +27,25 @@
             this.tbHost2 = new System.Windows.Forms.TextBox();
             this.btOk = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbHost2
             // 
             this.lbHost2.AutoSize = true;
-            this.lbHost2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHost2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHost2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.lbHost2.Location = new System.Drawing.Point(23, 33);
+            this.lbHost2.Location = new System.Drawing.Point(9, 13);
             this.lbHost2.Name = "lbHost2";
-            this.lbHost2.Size = new System.Drawing.Size(172, 30);
+            this.lbHost2.Size = new System.Drawing.Size(191, 33);
             this.lbHost2.TabIndex = 0;
             this.lbHost2.Text = "Defina o Host";
             // 
             // tbHost2
             // 
             this.tbHost2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbHost2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbHost2.Location = new System.Drawing.Point(56, 67);
+            this.tbHost2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbHost2.Location = new System.Drawing.Point(54, 67);
             this.tbHost2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbHost2.MaxLength = 10;
             this.tbHost2.Name = "tbHost2";
@@ -60,9 +61,9 @@
             this.btOk.Enabled = false;
             this.btOk.FlatAppearance.BorderSize = 0;
             this.btOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btOk.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btOk.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btOk.Location = new System.Drawing.Point(83, 106);
+            this.btOk.Location = new System.Drawing.Point(81, 106);
             this.btOk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btOk.Name = "btOk";
             this.btOk.Size = new System.Drawing.Size(64, 27);
@@ -73,6 +74,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lbHost2);
             this.panel1.Location = new System.Drawing.Point(7, 7);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(210, 146);
@@ -86,7 +88,6 @@
             this.ClientSize = new System.Drawing.Size(224, 159);
             this.Controls.Add(this.btOk);
             this.Controls.Add(this.tbHost2);
-            this.Controls.Add(this.lbHost2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -97,6 +98,8 @@
             this.Name = "FmHost";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "E o Host, meu chapa?";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

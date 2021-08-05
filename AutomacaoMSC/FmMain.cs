@@ -28,10 +28,6 @@ namespace AutomacaoMSC
             else
             {
                 tbLog.Text = "";
-                if (cbInstalar.Checked == true)
-                {
-                    InstallAll(tbLog);
-                }
                 if (cbHost.Checked == true || cbDominio.Checked == true)
                 {
                     //FmMigracao fmm = new FmMigracao();
@@ -67,6 +63,10 @@ namespace AutomacaoMSC
                 if (cbWSUS.Checked == true)
                 {
                     WsusConfig(tbLog);
+                }
+                if (cbInstalar.Checked == true)
+                {
+                    InstallAll(tbLog);
                 }
                 CheckBoxHide(true);
                 new FmFeito().ShowDialog(this);
@@ -109,11 +109,6 @@ namespace AutomacaoMSC
         private void LbGit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/abnercanellas/AutomacaoMSC/tree/master/AutomacaoMSC");
-        }
-
-        private void LbPreGit_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

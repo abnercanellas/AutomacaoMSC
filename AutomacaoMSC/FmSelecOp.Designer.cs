@@ -28,11 +28,11 @@ namespace AutomacaoMSC
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.label1.Location = new System.Drawing.Point(15, 17);
+            this.label1.Location = new System.Drawing.Point(16, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(334, 36);
+            this.label1.Size = new System.Drawing.Size(295, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "Selecione uma opção";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -45,7 +45,7 @@ namespace AutomacaoMSC
             this.btInstalar.FlatAppearance.BorderSize = 0;
             this.btInstalar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btInstalar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btInstalar.Location = new System.Drawing.Point(151, 68);
+            this.btInstalar.Location = new System.Drawing.Point(130, 65);
             this.btInstalar.Name = "btInstalar";
             this.btInstalar.Size = new System.Drawing.Size(64, 27);
             this.btInstalar.TabIndex = 2;
@@ -63,7 +63,7 @@ namespace AutomacaoMSC
             this.panel1.Location = new System.Drawing.Point(7, 7);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(367, 111);
+            this.panel1.Size = new System.Drawing.Size(329, 111);
             this.panel1.TabIndex = 4;
             // 
             // FmSelecOp
@@ -71,7 +71,7 @@ namespace AutomacaoMSC
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(381, 124);
+            this.ClientSize = new System.Drawing.Size(343, 124);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

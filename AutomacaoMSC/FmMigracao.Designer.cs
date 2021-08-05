@@ -30,8 +30,9 @@ namespace AutomacaoMSC
             this.btNao.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btNao.FlatAppearance.BorderSize = 0;
             this.btNao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btNao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btNao.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btNao.Location = new System.Drawing.Point(100, 88);
+            this.btNao.Location = new System.Drawing.Point(95, 85);
             this.btNao.Name = "btNao";
             this.btNao.Size = new System.Drawing.Size(64, 27);
             this.btNao.TabIndex = 0;
@@ -44,8 +45,9 @@ namespace AutomacaoMSC
             this.btSim.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btSim.FlatAppearance.BorderSize = 0;
             this.btSim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSim.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSim.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btSim.Location = new System.Drawing.Point(190, 88);
+            this.btSim.Location = new System.Drawing.Point(181, 85);
             this.btSim.Name = "btSim";
             this.btSim.Size = new System.Drawing.Size(64, 27);
             this.btSim.TabIndex = 1;
@@ -64,7 +66,7 @@ namespace AutomacaoMSC
             this.panel1.Controls.Add(this.btSim);
             this.panel1.Location = new System.Drawing.Point(6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(358, 135);
+            this.panel1.Size = new System.Drawing.Size(345, 135);
             this.panel1.TabIndex = 2;
             // 
             // lbMigracao
@@ -72,11 +74,11 @@ namespace AutomacaoMSC
             this.lbMigracao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbMigracao.AutoSize = true;
-            this.lbMigracao.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMigracao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMigracao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.lbMigracao.Location = new System.Drawing.Point(17, 13);
+            this.lbMigracao.Location = new System.Drawing.Point(28, 17);
             this.lbMigracao.Name = "lbMigracao";
-            this.lbMigracao.Size = new System.Drawing.Size(322, 44);
+            this.lbMigracao.Size = new System.Drawing.Size(294, 48);
             this.lbMigracao.TabIndex = 2;
             this.lbMigracao.Text = "Isso é uma migração de máquina \npara o Domínio?";
             this.lbMigracao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -87,7 +89,7 @@ namespace AutomacaoMSC
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.CancelButton = this.btNao;
-            this.ClientSize = new System.Drawing.Size(369, 146);
+            this.ClientSize = new System.Drawing.Size(356, 146);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
