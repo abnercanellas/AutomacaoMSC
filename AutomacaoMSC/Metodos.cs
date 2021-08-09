@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -12,6 +13,7 @@ namespace AutomacaoMSC
     {
 
         public static string architecture = Environment.Is64BitOperatingSystem? "x64":"x86";
+        public static string msg;
 
         //adiciona o evento ao painel de log
         public static void AddLog(TextBox tb, string msg)
@@ -43,8 +45,8 @@ namespace AutomacaoMSC
                     "\techo Set UAC = CreateObject^(\"Shell.Application\"^) > \"%temp%\\getadmin.vbs\"","\tset params = %*:\"=\"\"",
                     "\techo UAC.ShellExecute \"cmd.exe\", \"/c %~s0 %params%\", \"\", \"runas\", 1 >> \"%temp%\\getadmin.vbs\"",
                     "\t\"%temp%\\getadmin.vbs\"","\tdel \"%temp%\\getadmin.vbs\"","\texit /B",":gotAdmin","\tpushd \"%CD%\"",
-                    "\tCD /D \"%~dp0\"","\tgoto DOM",":DOM","powershell.exe add-computer -domainname ad.lit.inpe.br -credential LIT\\msc",
-                    "shutdown /r -t 3","(goto) 2>nul & del \"%~f0\""
+                    "\tCD /D \"%~dp0\"","\tgoto DOM",":DOM","powershell.exe add-computer -domainname ad.lit.inpe.br -credential LIT\\msc", 
+                    "if %ERRORLEVEL% GEQ 1 goto DOM", "shutdown /r -t 3","(goto) 2>nul & del \"%~f0\""
                     };
             File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Microsoft\Windows\Start Menu\Programs\StartUp\Dominio.bat"), aux);
         }
@@ -55,8 +57,8 @@ namespace AutomacaoMSC
             FmHost testDialog = new FmHost();
             if (testDialog.ShowDialog() == DialogResult.OK)
             {
-                FileExec("cmd.exe", "/c wmic computersystem where name=\"%computername%\" call rename " + testDialog.tbHost2.Text);
-                AddLog(tbLog, "Host alterado para " + testDialog.tbHost2.Text);
+                msg = FileExec("cmd.exe", "/c wmic computersystem where name=\"%computername%\" call rename " + testDialog.tbHost2.Text, true) == 0 ? "Host alterado para " + testDialog.tbHost2.Text : "Operação cancelada";
+                AddLog(tbLog, msg);
                 cbHost.Enabled = true;
             }
             testDialog.Dispose();
@@ -75,8 +77,8 @@ namespace AutomacaoMSC
         {
             if (cbDominio.Checked == true)
             {
-                FileExec("powershell.exe", @"/c add-computer -domainname ad.lit.inpe.br -credential LIT\msc");
-                AddLog(tbLog, "Ingressando no Domínio: ad.lit.inpe.br");
+                msg = FileExec("powershell.exe", @"/c add-computer -domainname ad.lit.inpe.br -credential LIT\msc", true) == 0 ? "Ingressando no Domínio: ad.lit.inpe.br" : "Operação cancelada";
+                AddLog(tbLog, msg);
             }
         }
 
@@ -108,15 +110,16 @@ namespace AutomacaoMSC
         public static void RdpConfig(TextBox tbLog)
         {
             EditReg(tbLog, @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server", "fDenyTSConnections", null, 0, RegistryValueKind.DWord);
-            FileExec("powershell.exe", "/c netsh advfirewall firewall set rule group='Área de Trabalho Remota' new enable=yes");
-            AddLog(tbLog, "Firewall de RDP liberado");
+            msg = FileExec("powershell.exe", "/c netsh advfirewall firewall set rule group='Área de Trabalho Remota' new enable=yes", true) == 0 ? "Liberando Firewall de RDP" : "Operação cancelada";
+            AddLog(tbLog, msg);
         }
 
         //ativa plano de alta performance
         public static void HighPerformance(TextBox tbLog)
         {
-            FileExec("cmd.exe", "/c powercfg /s 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c");
-            AddLog(tbLog, "Ativando plano de alta performance");
+            EditReg(tbLog, @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server", "fDenyTSConnections", null, 0, RegistryValueKind.DWord);
+            msg = FileExec("cmd.exe", "/c powercfg /s 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c", true) == 0 ? "Ativando plano de alta performance" : "Operação cancelada";
+            AddLog(tbLog, msg);
         }
 
         //instala os programas da pasta \\msc1\d\Automação\Programas
@@ -124,45 +127,54 @@ namespace AutomacaoMSC
         {
             string dir = @"\\msc1\d\Automação\Programas"+architecture;
             string[] mainDir = Directory.GetDirectories(dir);
-            
+            var file = new List<string>();
+            string vnc = "";
+
             foreach (string subDir in mainDir)
             {
-                string file="", key="";
                 foreach(string exec in Directory.GetFiles(subDir))
                 {
-                    if (exec.ToLower().Contains("serial"))
+                    if (exec.ToLower().Contains("setup") || exec.ToLower().Contains("ninite") || exec.ToLower().Contains("serial"))
                     {
-                        key = exec;
-                    }
-                    if (exec.ToLower().Contains("setup") || exec.ToLower().Contains("ninite"))
-                    {
-                        if (exec.ToLower().Contains(".exe") || exec.ToLower().Contains(".msi"))
+                        if (exec.ToLower().Contains(".exe") || exec.ToLower().Contains(".msi") || exec.ToLower().Contains("serial.txt"))
                         {
-                            file = exec;
+                            if (exec.ToLower().Contains("vnc"))
+                            {
+                                vnc = exec;
+                            }
+                            else
+                            {
+                                file.Add(exec);
+                            }
                         }
                     }
                 }
-                if (key != "")
+            }
+            if (vnc != "") //executar o vnc com prioridade
+            {
+                AddLog(tbLog, "Instalando: " + Directory.GetParent(vnc).Name);
+                FileExec(vnc, "", false);
+            }
+            foreach (string exec in file) //executa demais instaladores
+            {
+                if (exec.ToLower().Contains("serial.txt"))
                 {
                     try
                     {
-                        //AddLog(tbLog, "Abrindo Key: " + Directory.GetParent(key).Name);
-                        //FileExec(key, "");
-                        var content = File.ReadAllText(key);
+                        var content = File.ReadAllText(exec);
                         Clipboard.SetDataObject(content, false, 5, 200);
                     }
-                    catch (System.ComponentModel.Win32Exception e)
+                    catch (System.ComponentModel.Win32Exception e) 
                     {
-                        AddLog(tbLog, e.Message);
-                        MessageBox.Show(e.Message);
+                        AddLog(tbLog, e.Message); 
                     }
                 }
-                if (file != "")
+                else
                 {
                     try
                     {
-                        AddLog(tbLog, "Instalando: " + Directory.GetParent(file).Name);
-                        FileExec(file, "");
+                        AddLog(tbLog, "Instalando: " + Directory.GetParent(exec).Name);
+                        FileExec(exec, "", false);
                     }
                     catch (System.ComponentModel.Win32Exception e)
                     {
@@ -170,30 +182,46 @@ namespace AutomacaoMSC
                         MessageBox.Show(e.Message);
                     }
                 }
-            }            
+            }
         }
 
-        public static void FileExec(string filePath, string args)
+        public static int FileExec(string filePath, string args, bool isPrompt)
         {
             try
             {
+                bool op = true;
                 Process process = new Process();
+                do
                 {
                     process.StartInfo.FileName = filePath;
-                    process.StartInfo.Arguments = /*"/quiet ALLUSERS=1 " +*/ args;
+                    process.StartInfo.Arguments = args;
                     process.EnableRaisingEvents = true;
+                    if (isPrompt) process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     process.Start();
                     process.WaitForExit();
-                }
+                    if (process.ExitCode != 0) {
+                        FmMigracao aviso = new FmMigracao();
+                        op = aviso.ShowDialog() != DialogResult.OK;
+                        aviso.Dispose();
+                    }
+                    else
+                    {
+                        op = true;
+                    }
+
+                } while (op != true);
             }
             catch (InvalidOperationException iex)
             {
                 Interaction.MsgBox(iex.Message, MsgBoxStyle.OkOnly, MethodBase.GetCurrentMethod().Name);
+                return 1;
             }
             catch (Exception ex)
             {
                 Interaction.MsgBox(ex.Message, MsgBoxStyle.OkOnly, MethodBase.GetCurrentMethod().Name);
+                return 1;
             }
+            return 0;
         }
     }
 }

@@ -41,14 +41,14 @@ namespace AutomacaoMSC
                         {
                             ChangeHost(tbLog, cbHost);
                         }
-                        if (cbHost.Checked == true && cbDominio.Checked == true)
-                        {
-                            WriteTempFile();
-                        }
-                        else
-                        {
-                            DomainIngress(tbLog, cbDominio);
-                        }
+                    if (cbHost.Checked == true && cbDominio.Checked == true)
+                    {
+                        WriteTempFile();
+                    }
+                    else
+                    {
+                      DomainIngress(tbLog, cbDominio);
+                    }
                     //}
                     //fmm.Dispose();
                 }
@@ -109,6 +109,12 @@ namespace AutomacaoMSC
         private void LbGit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/abnercanellas/AutomacaoMSC/tree/master/AutomacaoMSC");
+        }
+
+        private void BtReiniciar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("O computador reiniciará após clicar em Ok!");
+            Process.Start("shutdown", "/r /t 1");
         }
     }
 }

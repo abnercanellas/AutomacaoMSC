@@ -18,7 +18,8 @@ namespace AutomacaoMSC
 
         private void BtReiniciar_Click(object sender, EventArgs e)
         {
-            Process.Start("shutdown", "/r /t 1");
+            MessageBox.Show("O computador reiniciará em 3s");
+            Process.Start("shutdown", "/r /t 3");
         }
     }
 }

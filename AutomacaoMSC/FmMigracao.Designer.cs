@@ -76,11 +76,11 @@ namespace AutomacaoMSC
             this.lbMigracao.AutoSize = true;
             this.lbMigracao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMigracao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.lbMigracao.Location = new System.Drawing.Point(28, 17);
+            this.lbMigracao.Location = new System.Drawing.Point(15, 19);
             this.lbMigracao.Name = "lbMigracao";
-            this.lbMigracao.Size = new System.Drawing.Size(294, 48);
+            this.lbMigracao.Size = new System.Drawing.Size(311, 48);
             this.lbMigracao.TabIndex = 2;
-            this.lbMigracao.Text = "Isso é uma migração de máquina \npara o Domínio?";
+            this.lbMigracao.Text = "Você não preencheu corretamente.\n Deseja repetir a operação?";
             this.lbMigracao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FmMigracao

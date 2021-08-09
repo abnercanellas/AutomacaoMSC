@@ -22,7 +22,6 @@ namespace AutomacaoMSC
             this.btExecutar = new System.Windows.Forms.Button();
             this.btSair = new System.Windows.Forms.Button();
             this.lbMSC = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btCompleta = new System.Windows.Forms.Button();
             this.btLimpar = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@ namespace AutomacaoMSC
             this.ldDescricao = new System.Windows.Forms.Label();
             this.ImgInpeSobre = new System.Windows.Forms.Panel();
             this.lbMSCSobre = new System.Windows.Forms.Label();
+            this.btReiniciar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabExecutar.SuspendLayout();
@@ -95,17 +95,6 @@ namespace AutomacaoMSC
             this.lbMSC.TabIndex = 5;
             this.lbMSC.Text = "Automação MSC - LIT";
             this.lbMSC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.progressBar1.Enabled = false;
-            this.progressBar1.Location = new System.Drawing.Point(14, 346);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(169, 20);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 3;
-            this.progressBar1.Visible = false;
             // 
             // panel1
             // 
@@ -266,12 +255,12 @@ namespace AutomacaoMSC
             // tabExecutar
             // 
             this.tabExecutar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabExecutar.Controls.Add(this.btReiniciar);
             this.tabExecutar.Controls.Add(this.lbSistema);
             this.tabExecutar.Controls.Add(this.lbArquitetura);
             this.tabExecutar.Controls.Add(this.ImgInpeMain);
             this.tabExecutar.Controls.Add(this.tbLog);
             this.tabExecutar.Controls.Add(this.btExecutar);
-            this.tabExecutar.Controls.Add(this.progressBar1);
             this.tabExecutar.Controls.Add(this.btSair);
             this.tabExecutar.Controls.Add(this.panel1);
             this.tabExecutar.Controls.Add(this.lbMSC);
@@ -393,6 +382,20 @@ namespace AutomacaoMSC
             this.lbMSCSobre.Text = "Automação MSC - LIT";
             this.lbMSCSobre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btReiniciar
+            // 
+            this.btReiniciar.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btReiniciar.FlatAppearance.BorderSize = 0;
+            this.btReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btReiniciar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btReiniciar.Location = new System.Drawing.Point(189, 346);
+            this.btReiniciar.Name = "btReiniciar";
+            this.btReiniciar.Size = new System.Drawing.Size(75, 23);
+            this.btReiniciar.TabIndex = 12;
+            this.btReiniciar.Text = "Reiniciar";
+            this.btReiniciar.UseVisualStyleBackColor = false;
+            this.btReiniciar.Click += new System.EventHandler(this.BtReiniciar_Click);
+            // 
             // AutomacaoMSC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,7 +421,6 @@ namespace AutomacaoMSC
 
         private Button btExecutar;
         private Button btSair;
-        private ProgressBar progressBar1;
         private Panel panel1;
         public CheckBox cbInstalar;
         public CheckBox cbHost;
@@ -443,6 +445,7 @@ namespace AutomacaoMSC
         private Label ldDescricao;
         private LinkLabel lbGit;
         private Label lbPreGit;
+        private Button btReiniciar;
     }
 }
 
