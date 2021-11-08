@@ -242,15 +242,16 @@ namespace AutomacaoMSC
 
         public static bool GetIpStatus()
         {
-            foreach(NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            try
             {
-                if(nic.Name == "Ethernet")
+                Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0);
+                socket.Connect("10.0.1.20", 1337); // doesnt matter what it connects to
+                IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
+                Console.WriteLine(endPoint.Address.ToString()); //ipv4
+                foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
                 {
-                    using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
+                    if (nic.Name == "Ethernet")
                     {
-                        socket.Connect("10.0.1.20", 1337); // doesnt matter what it connects to
-                        IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
-                        Console.WriteLine(endPoint.Address.ToString()); //ipv4
                         if (IPAddress.Parse("10.1.47.170").Equals(endPoint.Address))
                         {
                             return false;
@@ -258,6 +259,11 @@ namespace AutomacaoMSC
                     }
                 }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message.ToString());
+            }
+            
             
             return true;
         }
