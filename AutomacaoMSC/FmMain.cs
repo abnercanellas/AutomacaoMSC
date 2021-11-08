@@ -12,35 +12,29 @@ namespace AutomacaoMSC
             InitializeComponent();
             lbSistema.Text += Microsoft.Win32.Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\Windows NT\\CurrentVersion")?.GetValue("productName");
             lbArquitetura.Text = "Arquitetura: " + architecture;
+            SetIpButtonColor(cbIpTeste, !GetIpStatus());
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
         private void BtInstalar_Click(object sender, EventArgs e)
         {
             if (!(cbInstalar.Checked || cbHost.Checked || cbDominio.Checked || cbRDP.Checked || cbPerformance.Checked || cbWSUS.Checked))
             {
-                new FmSelecOp().ShowDialog(this);
+                //new FmSelecOp().ShowDialog(this);
             }
             else
             {
                 tbLog.Text = "";
                 if (cbHost.Checked == true || cbDominio.Checked == true)
                 {
-                    //FmMigracao fmm = new FmMigracao();
-                    //if (fmm.ShowDialog() == DialogResult.OK)
-                    //{
-                    //    MessageBox.Show("yahuu");
-                    //}
-                    //else
-                    //{
-                        if (cbHost.Checked == true)
-                        {
-                            ChangeHost(tbLog, cbHost);
-                        }
+                    if (cbHost.Checked == true)
+                    {
+                        ChangeHost(tbLog, cbHost);
+                    }
                     if (cbHost.Checked == true && cbDominio.Checked == true)
                     {
                         WriteTempFile();
@@ -49,8 +43,6 @@ namespace AutomacaoMSC
                     {
                       DomainIngress(tbLog, cbDominio);
                     }
-                    //}
-                    //fmm.Dispose();
                 }
                 if (cbRDP.Checked == true)
                 {
@@ -115,6 +107,16 @@ namespace AutomacaoMSC
         {
             MessageBox.Show("O computador reiniciará após clicar em Ok!");
             Process.Start("shutdown", "/r /t 1");
+        }
+
+        private void BtDelWsus_Click(object sender, EventArgs e)
+        {
+            RemWsusConfig(tbLog);
+        }
+
+        private void CbIpTeste_CheckedChanged(object sender, EventArgs e)
+        {
+            SetIpButton(cbIpTeste);
         }
     }
 }

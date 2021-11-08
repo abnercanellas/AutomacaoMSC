@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace AutomacaoMSC
@@ -22,7 +23,17 @@ namespace AutomacaoMSC
             this.btExecutar = new System.Windows.Forms.Button();
             this.btSair = new System.Windows.Forms.Button();
             this.lbMSC = new System.Windows.Forms.Label();
+            this.lbVersao = new System.Windows.Forms.Label();
+            this.tbLog = new System.Windows.Forms.TextBox();
+            this.tabMain = new System.Windows.Forms.TabControl();
+            this.tabExecutar = new System.Windows.Forms.TabPage();
+            this.cbIpTeste = new System.Windows.Forms.CheckBox();
+            this.btReiniciar = new System.Windows.Forms.Button();
+            this.lbSistema = new System.Windows.Forms.Label();
+            this.lbArquitetura = new System.Windows.Forms.Label();
+            this.ImgInpeMain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btDelWsus = new System.Windows.Forms.Button();
             this.btCompleta = new System.Windows.Forms.Button();
             this.btLimpar = new System.Windows.Forms.Button();
             this.cbInstalar = new System.Windows.Forms.CheckBox();
@@ -31,24 +42,17 @@ namespace AutomacaoMSC
             this.cbRDP = new System.Windows.Forms.CheckBox();
             this.cbPerformance = new System.Windows.Forms.CheckBox();
             this.cbWSUS = new System.Windows.Forms.CheckBox();
-            this.lbVersao = new System.Windows.Forms.Label();
-            this.tbLog = new System.Windows.Forms.TextBox();
-            this.tabMain = new System.Windows.Forms.TabControl();
-            this.tabExecutar = new System.Windows.Forms.TabPage();
-            this.lbSistema = new System.Windows.Forms.Label();
-            this.lbArquitetura = new System.Windows.Forms.Label();
-            this.ImgInpeMain = new System.Windows.Forms.Panel();
             this.tabSobre = new System.Windows.Forms.TabPage();
+            this.lbPreguica = new System.Windows.Forms.Label();
             this.lbGit = new System.Windows.Forms.LinkLabel();
             this.lbPreGit = new System.Windows.Forms.Label();
             this.lbAutor = new System.Windows.Forms.Label();
             this.ldDescricao = new System.Windows.Forms.Label();
             this.ImgInpeSobre = new System.Windows.Forms.Panel();
             this.lbMSCSobre = new System.Windows.Forms.Label();
-            this.btReiniciar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabExecutar.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabSobre.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,8 +100,124 @@ namespace AutomacaoMSC
             this.lbMSC.Text = "Automação MSC - LIT";
             this.lbMSC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbVersao
+            // 
+            this.lbVersao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVersao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            this.lbVersao.Location = new System.Drawing.Point(118, 319);
+            this.lbVersao.Name = "lbVersao";
+            this.lbVersao.Size = new System.Drawing.Size(218, 23);
+            this.lbVersao.TabIndex = 0;
+            this.lbVersao.Text = "BETA v0.00001Final";
+            this.lbVersao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbLog
+            // 
+            this.tbLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLog.Location = new System.Drawing.Point(33, 244);
+            this.tbLog.Multiline = true;
+            this.tbLog.Name = "tbLog";
+            this.tbLog.ReadOnly = true;
+            this.tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbLog.Size = new System.Drawing.Size(378, 92);
+            this.tbLog.TabIndex = 6;
+            this.tbLog.Visible = false;
+            // 
+            // tabMain
+            // 
+            this.tabMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabMain.Controls.Add(this.tabExecutar);
+            this.tabMain.Controls.Add(this.tabSobre);
+            this.tabMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabMain.Location = new System.Drawing.Point(12, 5);
+            this.tabMain.Multiline = true;
+            this.tabMain.Name = "tabMain";
+            this.tabMain.SelectedIndex = 0;
+            this.tabMain.Size = new System.Drawing.Size(450, 405);
+            this.tabMain.TabIndex = 1;
+            // 
+            // tabExecutar
+            // 
+            this.tabExecutar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabExecutar.Controls.Add(this.cbIpTeste);
+            this.tabExecutar.Controls.Add(this.btReiniciar);
+            this.tabExecutar.Controls.Add(this.lbSistema);
+            this.tabExecutar.Controls.Add(this.lbArquitetura);
+            this.tabExecutar.Controls.Add(this.ImgInpeMain);
+            this.tabExecutar.Controls.Add(this.tbLog);
+            this.tabExecutar.Controls.Add(this.btExecutar);
+            this.tabExecutar.Controls.Add(this.btSair);
+            this.tabExecutar.Controls.Add(this.panel1);
+            this.tabExecutar.Controls.Add(this.lbMSC);
+            this.tabExecutar.Location = new System.Drawing.Point(4, 22);
+            this.tabExecutar.Name = "tabExecutar";
+            this.tabExecutar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabExecutar.Size = new System.Drawing.Size(442, 379);
+            this.tabExecutar.TabIndex = 1;
+            this.tabExecutar.Text = "Executar";
+            // 
+            // cbIpTeste
+            // 
+            this.cbIpTeste.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbIpTeste.AutoSize = true;
+            this.cbIpTeste.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbIpTeste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbIpTeste.Location = new System.Drawing.Point(33, 346);
+            this.cbIpTeste.Name = "cbIpTeste";
+            this.cbIpTeste.Size = new System.Drawing.Size(57, 23);
+            this.cbIpTeste.TabIndex = 13;
+            this.cbIpTeste.Text = "IP Teste";
+            this.cbIpTeste.UseVisualStyleBackColor = true;
+            this.cbIpTeste.CheckedChanged += new System.EventHandler(this.CbIpTeste_CheckedChanged);
+            // 
+            // btReiniciar
+            // 
+            this.btReiniciar.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btReiniciar.FlatAppearance.BorderSize = 0;
+            this.btReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btReiniciar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btReiniciar.Location = new System.Drawing.Point(189, 346);
+            this.btReiniciar.Name = "btReiniciar";
+            this.btReiniciar.Size = new System.Drawing.Size(75, 23);
+            this.btReiniciar.TabIndex = 12;
+            this.btReiniciar.Text = "Reiniciar";
+            this.btReiniciar.UseVisualStyleBackColor = false;
+            this.btReiniciar.Click += new System.EventHandler(this.BtReiniciar_Click);
+            // 
+            // lbSistema
+            // 
+            this.lbSistema.AutoSize = true;
+            this.lbSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSistema.Location = new System.Drawing.Point(202, 82);
+            this.lbSistema.Name = "lbSistema";
+            this.lbSistema.Size = new System.Drawing.Size(50, 13);
+            this.lbSistema.TabIndex = 9;
+            this.lbSistema.Text = "Sistema: ";
+            // 
+            // lbArquitetura
+            // 
+            this.lbArquitetura.AutoSize = true;
+            this.lbArquitetura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbArquitetura.Location = new System.Drawing.Point(89, 81);
+            this.lbArquitetura.Name = "lbArquitetura";
+            this.lbArquitetura.Size = new System.Drawing.Size(64, 13);
+            this.lbArquitetura.TabIndex = 8;
+            this.lbArquitetura.Text = "Arquitetura: ";
+            // 
+            // ImgInpeMain
+            // 
+            this.ImgInpeMain.BackgroundImage = global::AutomacaoMSC.Properties.Resources.inpe_logo1;
+            this.ImgInpeMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ImgInpeMain.Location = new System.Drawing.Point(16, 6);
+            this.ImgInpeMain.Name = "ImgInpeMain";
+            this.ImgInpeMain.Size = new System.Drawing.Size(73, 68);
+            this.ImgInpeMain.TabIndex = 7;
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btDelWsus);
             this.panel1.Controls.Add(this.btCompleta);
             this.panel1.Controls.Add(this.btLimpar);
             this.panel1.Controls.Add(this.cbInstalar);
@@ -112,6 +232,21 @@ namespace AutomacaoMSC
             this.panel1.Size = new System.Drawing.Size(436, 131);
             this.panel1.TabIndex = 2;
             // 
+            // btDelWsus
+            // 
+            this.btDelWsus.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btDelWsus.FlatAppearance.BorderSize = 0;
+            this.btDelWsus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDelWsus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDelWsus.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btDelWsus.Location = new System.Drawing.Point(267, 12);
+            this.btDelWsus.Name = "btDelWsus";
+            this.btDelWsus.Size = new System.Drawing.Size(75, 23);
+            this.btDelWsus.TabIndex = 10;
+            this.btDelWsus.Text = "Del WSUS";
+            this.btDelWsus.UseVisualStyleBackColor = false;
+            this.btDelWsus.Click += new System.EventHandler(this.BtDelWsus_Click);
+            // 
             // btCompleta
             // 
             this.btCompleta.BackColor = System.Drawing.Color.LightSlateGray;
@@ -119,7 +254,7 @@ namespace AutomacaoMSC
             this.btCompleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCompleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCompleta.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btCompleta.Location = new System.Drawing.Point(222, 12);
+            this.btCompleta.Location = new System.Drawing.Point(186, 12);
             this.btCompleta.Name = "btCompleta";
             this.btCompleta.Size = new System.Drawing.Size(75, 23);
             this.btCompleta.TabIndex = 3;
@@ -134,7 +269,7 @@ namespace AutomacaoMSC
             this.btLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLimpar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btLimpar.Location = new System.Drawing.Point(127, 12);
+            this.btLimpar.Location = new System.Drawing.Point(105, 12);
             this.btLimpar.Name = "btLimpar";
             this.btLimpar.Size = new System.Drawing.Size(75, 23);
             this.btLimpar.TabIndex = 2;
@@ -214,95 +349,10 @@ namespace AutomacaoMSC
             this.cbWSUS.Text = "Configurar WSUS";
             this.cbWSUS.UseVisualStyleBackColor = true;
             // 
-            // lbVersao
-            // 
-            this.lbVersao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVersao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.lbVersao.Location = new System.Drawing.Point(118, 319);
-            this.lbVersao.Name = "lbVersao";
-            this.lbVersao.Size = new System.Drawing.Size(218, 23);
-            this.lbVersao.TabIndex = 0;
-            this.lbVersao.Text = "BETA v0.00000AGORAVAI";
-            this.lbVersao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbLog
-            // 
-            this.tbLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLog.Location = new System.Drawing.Point(33, 244);
-            this.tbLog.Multiline = true;
-            this.tbLog.Name = "tbLog";
-            this.tbLog.ReadOnly = true;
-            this.tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbLog.Size = new System.Drawing.Size(378, 92);
-            this.tbLog.TabIndex = 6;
-            this.tbLog.Visible = false;
-            // 
-            // tabMain
-            // 
-            this.tabMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabMain.Controls.Add(this.tabExecutar);
-            this.tabMain.Controls.Add(this.tabSobre);
-            this.tabMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabMain.Location = new System.Drawing.Point(12, 5);
-            this.tabMain.Multiline = true;
-            this.tabMain.Name = "tabMain";
-            this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(450, 405);
-            this.tabMain.TabIndex = 1;
-            // 
-            // tabExecutar
-            // 
-            this.tabExecutar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabExecutar.Controls.Add(this.btReiniciar);
-            this.tabExecutar.Controls.Add(this.lbSistema);
-            this.tabExecutar.Controls.Add(this.lbArquitetura);
-            this.tabExecutar.Controls.Add(this.ImgInpeMain);
-            this.tabExecutar.Controls.Add(this.tbLog);
-            this.tabExecutar.Controls.Add(this.btExecutar);
-            this.tabExecutar.Controls.Add(this.btSair);
-            this.tabExecutar.Controls.Add(this.panel1);
-            this.tabExecutar.Controls.Add(this.lbMSC);
-            this.tabExecutar.Location = new System.Drawing.Point(4, 22);
-            this.tabExecutar.Name = "tabExecutar";
-            this.tabExecutar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabExecutar.Size = new System.Drawing.Size(442, 379);
-            this.tabExecutar.TabIndex = 1;
-            this.tabExecutar.Text = "Executar";
-            // 
-            // lbSistema
-            // 
-            this.lbSistema.AutoSize = true;
-            this.lbSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSistema.Location = new System.Drawing.Point(202, 82);
-            this.lbSistema.Name = "lbSistema";
-            this.lbSistema.Size = new System.Drawing.Size(50, 13);
-            this.lbSistema.TabIndex = 9;
-            this.lbSistema.Text = "Sistema: ";
-            // 
-            // lbArquitetura
-            // 
-            this.lbArquitetura.AutoSize = true;
-            this.lbArquitetura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbArquitetura.Location = new System.Drawing.Point(89, 81);
-            this.lbArquitetura.Name = "lbArquitetura";
-            this.lbArquitetura.Size = new System.Drawing.Size(64, 13);
-            this.lbArquitetura.TabIndex = 8;
-            this.lbArquitetura.Text = "Arquitetura: ";
-            // 
-            // ImgInpeMain
-            // 
-            this.ImgInpeMain.BackgroundImage = global::AutomacaoMSC.Properties.Resources.inpe_logo1;
-            this.ImgInpeMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ImgInpeMain.Location = new System.Drawing.Point(16, 6);
-            this.ImgInpeMain.Name = "ImgInpeMain";
-            this.ImgInpeMain.Size = new System.Drawing.Size(73, 68);
-            this.ImgInpeMain.TabIndex = 7;
-            // 
             // tabSobre
             // 
             this.tabSobre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabSobre.Controls.Add(this.lbPreguica);
             this.tabSobre.Controls.Add(this.lbGit);
             this.tabSobre.Controls.Add(this.lbPreGit);
             this.tabSobre.Controls.Add(this.lbAutor);
@@ -317,11 +367,20 @@ namespace AutomacaoMSC
             this.tabSobre.TabIndex = 0;
             this.tabSobre.Text = "Sobre";
             // 
+            // lbPreguica
+            // 
+            this.lbPreguica.AutoSize = true;
+            this.lbPreguica.Location = new System.Drawing.Point(127, 169);
+            this.lbPreguica.Name = "lbPreguica";
+            this.lbPreguica.Size = new System.Drawing.Size(198, 13);
+            this.lbPreguica.TabIndex = 14;
+            this.lbPreguica.Text = "Carinhosamente apilidado de \"Preguiça\"";
+            // 
             // lbGit
             // 
             this.lbGit.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGit.AutoSize = true;
-            this.lbGit.Location = new System.Drawing.Point(303, 274);
+            this.lbGit.Location = new System.Drawing.Point(296, 274);
             this.lbGit.Name = "lbGit";
             this.lbGit.Size = new System.Drawing.Size(40, 13);
             this.lbGit.TabIndex = 13;
@@ -334,11 +393,11 @@ namespace AutomacaoMSC
             this.lbPreGit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPreGit.AutoSize = true;
-            this.lbPreGit.Location = new System.Drawing.Point(114, 274);
+            this.lbPreGit.Location = new System.Drawing.Point(103, 274);
             this.lbPreGit.Name = "lbPreGit";
-            this.lbPreGit.Size = new System.Drawing.Size(194, 13);
+            this.lbPreGit.Size = new System.Drawing.Size(199, 13);
             this.lbPreGit.TabIndex = 12;
-            this.lbPreGit.Text = "O código aberto pode ser acessado no ";
+            this.lbPreGit.Text = "O código aberto pode ser acessado em: ";
             // 
             // lbAutor
             // 
@@ -354,7 +413,7 @@ namespace AutomacaoMSC
             this.ldDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ldDescricao.AutoSize = true;
-            this.ldDescricao.Location = new System.Drawing.Point(110, 206);
+            this.ldDescricao.Location = new System.Drawing.Point(103, 203);
             this.ldDescricao.Name = "ldDescricao";
             this.ldDescricao.Size = new System.Drawing.Size(240, 39);
             this.ldDescricao.TabIndex = 10;
@@ -382,20 +441,6 @@ namespace AutomacaoMSC
             this.lbMSCSobre.Text = "Automação MSC - LIT";
             this.lbMSCSobre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btReiniciar
-            // 
-            this.btReiniciar.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.btReiniciar.FlatAppearance.BorderSize = 0;
-            this.btReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btReiniciar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btReiniciar.Location = new System.Drawing.Point(189, 346);
-            this.btReiniciar.Name = "btReiniciar";
-            this.btReiniciar.Size = new System.Drawing.Size(75, 23);
-            this.btReiniciar.TabIndex = 12;
-            this.btReiniciar.Text = "Reiniciar";
-            this.btReiniciar.UseVisualStyleBackColor = false;
-            this.btReiniciar.Click += new System.EventHandler(this.BtReiniciar_Click);
-            // 
             // AutomacaoMSC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,10 +454,10 @@ namespace AutomacaoMSC
             this.Name = "AutomacaoMSC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Automação MSC LIT";
-            this.panel1.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabExecutar.ResumeLayout(false);
             this.tabExecutar.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.tabSobre.ResumeLayout(false);
             this.tabSobre.PerformLayout();
             this.ResumeLayout(false);
@@ -421,18 +466,9 @@ namespace AutomacaoMSC
 
         private Button btExecutar;
         private Button btSair;
-        private Panel panel1;
-        public CheckBox cbInstalar;
-        public CheckBox cbHost;
-        public CheckBox cbDominio;
-        public CheckBox cbRDP;
-        public CheckBox cbPerformance;
-        public CheckBox cbWSUS;
         private TextBox tbLog;
         private Label lbVersao;
         private Label lbMSC;
-        private Button btLimpar;
-        private Button btCompleta;
         private TabControl tabMain;
         private TabPage tabExecutar;
         private TabPage tabSobre;
@@ -446,6 +482,18 @@ namespace AutomacaoMSC
         private LinkLabel lbGit;
         private Label lbPreGit;
         private Button btReiniciar;
+        private Panel panel1;
+        private Button btCompleta;
+        private Button btLimpar;
+        public CheckBox cbInstalar;
+        public CheckBox cbHost;
+        public CheckBox cbDominio;
+        public CheckBox cbRDP;
+        public CheckBox cbPerformance;
+        public CheckBox cbWSUS;
+        public Button btDelWsus;
+        public Label lbPreguica;
+        public CheckBox cbIpTeste;
     }
 }
 

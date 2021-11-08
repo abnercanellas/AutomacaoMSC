@@ -3,7 +3,11 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -106,6 +110,17 @@ namespace AutomacaoMSC
             EditReg(tbLog, userRoot, "NoAutoRebootWithLoggedOnUsers", null, 1, RegistryValueKind.DWord);
         }
 
+        //Edição dos registros do WSUS
+        public static void RemWsusConfig(TextBox tbLog)
+        {
+            string userRoot = @"SOFTWARE\Policies\Microsoft\Windows";
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(userRoot, true))
+            {
+                key.DeleteSubKeyTree("WindowsUpdate");
+                AddLog(tbLog, "WSUS deletado");
+            }
+
+        }
         //ativa o RDP
         public static void RdpConfig(TextBox tbLog)
         {
@@ -125,7 +140,8 @@ namespace AutomacaoMSC
         //instala os programas da pasta \\msc1\d\Automação\Programas
         public static void InstallAll(TextBox tbLog)
         {
-            string dir = @"\\msc1\d\Automação\Programas"+architecture;
+            //string dir = @"\\msc1\d\Automação\Programas"+architecture;
+            string dir = @"Automação\Programas" + architecture;
             string[] mainDir = Directory.GetDirectories(dir);
             var file = new List<string>();
             string vnc = "";
@@ -222,6 +238,58 @@ namespace AutomacaoMSC
                 return 1;
             }
             return 0;
+        }
+
+        public static bool GetIpStatus()
+        {
+            foreach(NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if(nic.Name == "Ethernet")
+                {
+                    using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
+                    {
+                        socket.Connect("10.0.1.20", 1337); // doesnt matter what it connects to
+                        IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
+                        Console.WriteLine(endPoint.Address.ToString()); //ipv4
+                        if (IPAddress.Parse("10.1.47.170").Equals(endPoint.Address))
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            
+            return true;
+        }
+
+        public static void SetIpButtonColor(CheckBox cbIpTeste, bool color)
+        {
+            if (color)
+            {
+                cbIpTeste.BackColor = Color.MediumTurquoise;
+                cbIpTeste.FlatAppearance.BorderSize = 0;
+            }
+            else
+            {
+                cbIpTeste.BackColor = Color.WhiteSmoke;
+                cbIpTeste.FlatAppearance.BorderSize = 1;
+            }
+        }
+
+        public static void SetIpButton(CheckBox cbIpTeste)
+        {
+            bool resul = GetIpStatus();
+            SetIpButtonColor(cbIpTeste, resul);
+            if (resul)
+            {
+                FileExec("netsh", $"interface ipv4 set address \"Ethernet\" static 10.1.47.170 255.255.0.0 10.1.0.254", true);
+                FileExec("netsh", $"interface ipv4 set dns \"Ethernet\" static 10.1.0.30", true);
+            }
+            else
+            {
+                FileExec("netsh", $"interface ipv4 set address \"Ethernet\" dhcp", true);
+                FileExec("netsh", $"interface ipv4 set dns \"Ethernet\" dhcp", true);
+            }
         }
     }
 }
