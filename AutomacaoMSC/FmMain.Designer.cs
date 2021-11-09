@@ -24,7 +24,7 @@ namespace AutomacaoMSC
             this.btSair = new System.Windows.Forms.Button();
             this.lbMSC = new System.Windows.Forms.Label();
             this.lbVersao = new System.Windows.Forms.Label();
-            this.tbLog = new System.Windows.Forms.TextBox();
+            this.tbLog = new System.Windows.Forms.RichTextBox();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabExecutar = new System.Windows.Forms.TabPage();
             this.cbIpTeste = new System.Windows.Forms.CheckBox();
@@ -40,6 +40,11 @@ namespace AutomacaoMSC
             this.cbRDP = new System.Windows.Forms.CheckBox();
             this.cbPerformance = new System.Windows.Forms.CheckBox();
             this.cbWSUS = new System.Windows.Forms.CheckBox();
+            this.tabSysInfo = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbMacs = new System.Windows.Forms.Label();
+            this.lbSistema = new System.Windows.Forms.Label();
+            this.lbArquitetura = new System.Windows.Forms.Label();
             this.tabSobre = new System.Windows.Forms.TabPage();
             this.lbPreguica = new System.Windows.Forms.Label();
             this.lbGit = new System.Windows.Forms.LinkLabel();
@@ -48,15 +53,12 @@ namespace AutomacaoMSC
             this.ldDescricao = new System.Windows.Forms.Label();
             this.ImgInpeSobre = new System.Windows.Forms.Panel();
             this.lbMSCSobre = new System.Windows.Forms.Label();
-            this.tabSysInfo = new System.Windows.Forms.TabPage();
-            this.lbSistema = new System.Windows.Forms.Label();
-            this.lbArquitetura = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tbMacs = new System.Windows.Forms.RichTextBox();
             this.tabMain.SuspendLayout();
             this.tabExecutar.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabSobre.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
+            this.tabSobre.SuspendLayout();
             this.SuspendLayout();
             // 
             // btExecutar
@@ -117,13 +119,13 @@ namespace AutomacaoMSC
             // tbLog
             // 
             this.tbLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLog.Location = new System.Drawing.Point(33, 244);
-            this.tbLog.Multiline = true;
+            this.tbLog.Location = new System.Drawing.Point(33, 237);
             this.tbLog.Name = "tbLog";
             this.tbLog.ReadOnly = true;
-            this.tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.tbLog.Size = new System.Drawing.Size(378, 92);
             this.tbLog.TabIndex = 6;
+            this.tbLog.Text = "";
             this.tbLog.Visible = false;
             // 
             // tabMain
@@ -166,7 +168,7 @@ namespace AutomacaoMSC
             this.cbIpTeste.AutoSize = true;
             this.cbIpTeste.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbIpTeste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbIpTeste.Location = new System.Drawing.Point(33, 346);
+            this.cbIpTeste.Location = new System.Drawing.Point(16, 346);
             this.cbIpTeste.Name = "cbIpTeste";
             this.cbIpTeste.Size = new System.Drawing.Size(57, 23);
             this.cbIpTeste.TabIndex = 13;
@@ -209,7 +211,7 @@ namespace AutomacaoMSC
             this.panel1.Controls.Add(this.cbPerformance);
             this.panel1.Controls.Add(this.cbWSUS);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(3, 103);
+            this.panel1.Location = new System.Drawing.Point(3, 92);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(436, 131);
             this.panel1.TabIndex = 2;
@@ -331,6 +333,59 @@ namespace AutomacaoMSC
             this.cbWSUS.Text = "Configurar WSUS";
             this.cbWSUS.UseVisualStyleBackColor = true;
             // 
+            // tabSysInfo
+            // 
+            this.tabSysInfo.Controls.Add(this.tbMacs);
+            this.tabSysInfo.Controls.Add(this.panel3);
+            this.tabSysInfo.Controls.Add(this.lbMacs);
+            this.tabSysInfo.Controls.Add(this.lbSistema);
+            this.tabSysInfo.Controls.Add(this.lbArquitetura);
+            this.tabSysInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabSysInfo.Name = "tabSysInfo";
+            this.tabSysInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSysInfo.Size = new System.Drawing.Size(442, 379);
+            this.tabSysInfo.TabIndex = 2;
+            this.tabSysInfo.Text = "Sys Info";
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::AutomacaoMSC.Properties.Resources.inpe_logo1;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel3.Location = new System.Drawing.Point(333, 22);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(48, 46);
+            this.panel3.TabIndex = 16;
+            // 
+            // lbMacs
+            // 
+            this.lbMacs.AutoSize = true;
+            this.lbMacs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMacs.Location = new System.Drawing.Point(56, 81);
+            this.lbMacs.Name = "lbMacs";
+            this.lbMacs.Size = new System.Drawing.Size(45, 13);
+            this.lbMacs.TabIndex = 12;
+            this.lbMacs.Text = "Macs: ";
+            // 
+            // lbSistema
+            // 
+            this.lbSistema.AutoSize = true;
+            this.lbSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSistema.Location = new System.Drawing.Point(56, 25);
+            this.lbSistema.Name = "lbSistema";
+            this.lbSistema.Size = new System.Drawing.Size(59, 13);
+            this.lbSistema.TabIndex = 11;
+            this.lbSistema.Text = "Sistema: ";
+            // 
+            // lbArquitetura
+            // 
+            this.lbArquitetura.AutoSize = true;
+            this.lbArquitetura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbArquitetura.Location = new System.Drawing.Point(56, 38);
+            this.lbArquitetura.Name = "lbArquitetura";
+            this.lbArquitetura.Size = new System.Drawing.Size(77, 13);
+            this.lbArquitetura.TabIndex = 10;
+            this.lbArquitetura.Text = "Arquitetura: ";
+            // 
             // tabSobre
             // 
             this.tabSobre.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -399,8 +454,8 @@ namespace AutomacaoMSC
             this.ldDescricao.Name = "ldDescricao";
             this.ldDescricao.Size = new System.Drawing.Size(240, 39);
             this.ldDescricao.TabIndex = 10;
-            this.ldDescricao.Text = "Esse app foi feito com intuito de \nagilizar a configuração das maquinas atualizad" +
-    "as \n pela equipe MSC ";
+            this.ldDescricao.Text = "Esse app foi desenvolvido com intuito de \nagilizar a configuração das maquinas at" +
+    "ualizadas \n pela equipe MSC ";
             this.ldDescricao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ImgInpeSobre
@@ -423,47 +478,18 @@ namespace AutomacaoMSC
             this.lbMSCSobre.Text = "Automação MSC - LIT";
             this.lbMSCSobre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabSysInfo
+            // tbMacs
             // 
-            this.tabSysInfo.Controls.Add(this.label1);
-            this.tabSysInfo.Controls.Add(this.lbSistema);
-            this.tabSysInfo.Controls.Add(this.lbArquitetura);
-            this.tabSysInfo.Location = new System.Drawing.Point(4, 22);
-            this.tabSysInfo.Name = "tabSysInfo";
-            this.tabSysInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSysInfo.Size = new System.Drawing.Size(442, 379);
-            this.tabSysInfo.TabIndex = 2;
-            this.tabSysInfo.Text = "Sys Info";
-            // 
-            // lbSistema
-            // 
-            this.lbSistema.AutoSize = true;
-            this.lbSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSistema.Location = new System.Drawing.Point(226, 28);
-            this.lbSistema.Name = "lbSistema";
-            this.lbSistema.Size = new System.Drawing.Size(50, 13);
-            this.lbSistema.TabIndex = 11;
-            this.lbSistema.Text = "Sistema: ";
-            // 
-            // lbArquitetura
-            // 
-            this.lbArquitetura.AutoSize = true;
-            this.lbArquitetura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbArquitetura.Location = new System.Drawing.Point(113, 27);
-            this.lbArquitetura.Name = "lbArquitetura";
-            this.lbArquitetura.Size = new System.Drawing.Size(64, 13);
-            this.lbArquitetura.TabIndex = 10;
-            this.lbArquitetura.Text = "Arquitetura: ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Arquitetura: ";
+            this.tbMacs.BackColor = this.BackColor;
+            this.tbMacs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbMacs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMacs.Location = new System.Drawing.Point(59, 103);
+            this.tbMacs.Name = "tbMacs";
+            this.tbMacs.ReadOnly = true;
+            this.tbMacs.Size = new System.Drawing.Size(322, 243);
+            this.tbMacs.TabIndex = 17;
+            this.tbMacs.TabStop = false;
+            this.tbMacs.Text = "";
             // 
             // AutomacaoMSC
             // 
@@ -482,17 +508,17 @@ namespace AutomacaoMSC
             this.tabExecutar.ResumeLayout(false);
             this.tabExecutar.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.tabSobre.ResumeLayout(false);
-            this.tabSobre.PerformLayout();
             this.tabSysInfo.ResumeLayout(false);
             this.tabSysInfo.PerformLayout();
+            this.tabSobre.ResumeLayout(false);
+            this.tabSobre.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         private Button btExecutar;
         private Button btSair;
-        private TextBox tbLog;
+        private RichTextBox tbLog;
         private Label lbVersao;
         private Label lbMSC;
         private TabControl tabMain;
@@ -521,7 +547,9 @@ namespace AutomacaoMSC
         private TabPage tabSysInfo;
         private Label lbSistema;
         private Label lbArquitetura;
-        private Label label1;
+        private Label lbMacs;
+        private Panel panel3;
+        private RichTextBox tbMacs;
     }
 }
 

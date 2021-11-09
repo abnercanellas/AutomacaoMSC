@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Management;
 using System.Windows.Forms;
 using static AutomacaoMSC.Metodos;
 
@@ -7,12 +8,29 @@ namespace AutomacaoMSC
 {
     public partial class AutomacaoMSC : Form
     {
+        private static ManagementObjectSearcher baseboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
         public AutomacaoMSC()
         {
             InitializeComponent();
             lbSistema.Text += Microsoft.Win32.Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\Windows NT\\CurrentVersion")?.GetValue("productName");
             lbArquitetura.Text = "Arquitetura: " + architecture;
             SetIpButtonColor(cbIpTeste, !GetIpStatus());
+            foreach (var item in GetMacs())
+            {
+                tbMacs.Text += item.Key;
+                tbMacs.Text += "\t" + item.Value + Environment.NewLine + Environment.NewLine;
+            }
+
+            foreach (ManagementObject queryObj in baseboardSearcher.Get())
+            {
+                string s = queryObj["SerialNumber"].ToString();
+                string[] ab = s.Split('/');
+                //foreach (string item in ab)
+                //{
+                //    if(item.Contains("BR"))
+                //}
+            }
+            
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)
@@ -116,8 +134,9 @@ namespace AutomacaoMSC
 
         private void CbIpTeste_CheckedChanged(object sender, EventArgs e)
         {
-            SetIpButton(cbIpTeste);
+            SetIpButton(cbIpTeste, tbLog);
         }
+
     }
 }
 

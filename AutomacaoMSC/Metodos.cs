@@ -18,16 +18,41 @@ namespace AutomacaoMSC
 
         public static string architecture = Environment.Is64BitOperatingSystem? "x64":"x86";
         public static string msg;
+        public static string Ethernet = "Ethernet";
+
+
+
+        public static Dictionary<string, string> GetMacs()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                string mac2 = nic.GetPhysicalAddress().ToString();
+                int len = mac2.Length;
+                string aux = "";
+                for (int i = 0; i < len; i += 2)
+                {
+                    aux += mac2.Substring(i, 2);
+                    if (i < len - 2)
+                        aux += ":";
+                }
+
+                dic.Add(nic.Name,aux);
+                if(nic.Name.Contains("Ethernet") && nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet) Ethernet = nic.Name;
+            }
+
+            return dic;
+        }
 
         //adiciona o evento ao painel de log
-        public static void AddLog(TextBox tb, string msg)
+        public static void AddLog(RichTextBox tb, string msg)
         {
             tb.Visible = true; //garante que o painel esteja visivel
             tb.AppendText("-> " + msg + " ..." + Environment.NewLine); //adiciona o evento na ultima linha
         }
 
         //comandos relativos à edição do registro do windows
-        public static void EditReg(TextBox tb, string userRoot, string key, string sValue, int iValue, RegistryValueKind type)
+        public static void EditReg(RichTextBox tb, string userRoot, string key, string sValue, int iValue, RegistryValueKind type)
         {
             string value = sValue;//receberá o valor da chave
             if (sValue == null) //caso a chave não seja passada como string, então int
@@ -56,7 +81,7 @@ namespace AutomacaoMSC
         }
 
         //chama janela que exige um nome para o Host, caso ele não tenha sido inserido
-        public static void HostDialBox(TextBox tbLog, CheckBox cbHost)
+        public static void HostDialBox(RichTextBox tbLog, CheckBox cbHost)
         {
             FmHost testDialog = new FmHost();
             if (testDialog.ShowDialog() == DialogResult.OK)
@@ -69,7 +94,7 @@ namespace AutomacaoMSC
         }
 
         //Comando de troca do Host
-        public static void ChangeHost(TextBox tbLog, CheckBox cbHost)
+        public static void ChangeHost(RichTextBox tbLog, CheckBox cbHost)
         {
             
             HostDialBox(tbLog, cbHost);
@@ -77,7 +102,7 @@ namespace AutomacaoMSC
         }
 
         //comando de entrada no dominio
-        public static void DomainIngress(TextBox tbLog, CheckBox cbDominio)
+        public static void DomainIngress(RichTextBox tbLog, CheckBox cbDominio)
         {
             if (cbDominio.Checked == true)
             {
@@ -87,7 +112,7 @@ namespace AutomacaoMSC
         }
 
         //Edição dos registros do WSUS
-        public static void WsusConfig(TextBox tbLog)
+        public static void WsusConfig(RichTextBox tbLog)
         {
             string userRoot = @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate";
             EditReg(tbLog, userRoot, "ElevateNonAdmins", null, 1, RegistryValueKind.DWord);
@@ -111,7 +136,7 @@ namespace AutomacaoMSC
         }
 
         //Edição dos registros do WSUS
-        public static void RemWsusConfig(TextBox tbLog)
+        public static void RemWsusConfig(RichTextBox tbLog)
         {
             string userRoot = @"SOFTWARE\Policies\Microsoft\Windows";
             using (RegistryKey key = Registry.LocalMachine.OpenSubKey(userRoot, true))
@@ -122,7 +147,7 @@ namespace AutomacaoMSC
 
         }
         //ativa o RDP
-        public static void RdpConfig(TextBox tbLog)
+        public static void RdpConfig(RichTextBox tbLog)
         {
             EditReg(tbLog, @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server", "fDenyTSConnections", null, 0, RegistryValueKind.DWord);
             msg = FileExec("powershell.exe", "/c netsh advfirewall firewall set rule group='Área de Trabalho Remota' new enable=yes", true) == 0 ? "Liberando Firewall de RDP" : "Operação cancelada";
@@ -130,7 +155,7 @@ namespace AutomacaoMSC
         }
 
         //ativa plano de alta performance
-        public static void HighPerformance(TextBox tbLog)
+        public static void HighPerformance(RichTextBox tbLog)
         {
             EditReg(tbLog, @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server", "fDenyTSConnections", null, 0, RegistryValueKind.DWord);
             msg = FileExec("cmd.exe", "/c powercfg /s 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c", true) == 0 ? "Ativando plano de alta performance" : "Operação cancelada";
@@ -138,7 +163,7 @@ namespace AutomacaoMSC
         }
 
         //instala os programas da pasta \\msc1\d\Automação\Programas
-        public static void InstallAll(TextBox tbLog)
+        public static void InstallAll(RichTextBox tbLog)
         {
             //string dir = @"\\msc1\d\Automação\Programas"+architecture;
             string dir = @"Automação\Programas" + architecture;
@@ -244,15 +269,21 @@ namespace AutomacaoMSC
         {
             try
             {
-                Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0);
-                socket.Connect("10.0.1.20", 1337); // doesnt matter what it connects to
-                IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
-                Console.WriteLine(endPoint.Address.ToString()); //ipv4
+                IPAddress endPoint = IPAddress.Parse("0.0.0.0");
+                var host = Dns.GetHostEntry(Dns.GetHostName());
+                foreach (var ip in host.AddressList)
+                {
+                    if (ip.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        endPoint = ip;
+                    }
+                }
                 foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
                 {
-                    if (nic.Name == "Ethernet")
+                    if (nic.Name.Contains("Ethernet") && nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
                     {
-                        if (IPAddress.Parse("10.1.47.170").Equals(endPoint.Address))
+
+                        if (IPAddress.Parse("10.1.47.170").Equals(endPoint))
                         {
                             return false;
                         }
@@ -261,7 +292,7 @@ namespace AutomacaoMSC
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message.ToString());
+                MessageBox.Show(e.Message.ToString());
             }
             
             
@@ -282,19 +313,23 @@ namespace AutomacaoMSC
             }
         }
 
-        public static void SetIpButton(CheckBox cbIpTeste)
+        public static void SetIpButton(CheckBox cbIpTeste, RichTextBox tbLog)
         {
             bool resul = GetIpStatus();
             SetIpButtonColor(cbIpTeste, resul);
             if (resul)
             {
-                FileExec("netsh", $"interface ipv4 set address \"Ethernet\" static 10.1.47.170 255.255.0.0 10.1.0.254", true);
-                FileExec("netsh", $"interface ipv4 set dns \"Ethernet\" static 10.1.0.30", true);
+                //MessageBox.Show($"netsh interface ipv4 set address {Ethernet} static 10.1.47.170 255.255.0.0 10.1.0.254");
+                FileExec("netsh", $"interface ipv4 set address \"{Ethernet}\" static 10.1.47.170 255.255.0.0 10.1.0.254", true);
+                FileExec("netsh", $"interface ipv4 set dns \"{Ethernet}\" static 10.1.0.30", true);
+                AddLog(tbLog, "Ethernet:\nIP: 10.1.47.170 Mas: 255.255.0.0\nGW: 10.1.0.254 DNS: 10.1.0.30");
             }
             else
             {
-                FileExec("netsh", $"interface ipv4 set address \"Ethernet\" dhcp", true);
-                FileExec("netsh", $"interface ipv4 set dns \"Ethernet\" dhcp", true);
+                FileExec("netsh", $"interface ipv4 set address \"{Ethernet}\" dhcp", true);
+                FileExec("netsh", $"interface ipv4 set dns \"{Ethernet}\" dhcp", true);
+                AddLog(tbLog, "Ethernet:\nIP: DHCP Mas: DHCP \nGW: DHCP DNS: DHCP");
+
             }
         }
     }
