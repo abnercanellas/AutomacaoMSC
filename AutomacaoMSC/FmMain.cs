@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Management;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using static AutomacaoMSC.Metodos;
 
@@ -21,15 +23,16 @@ namespace AutomacaoMSC
                 tbMacs.Text += "\t" + item.Value + Environment.NewLine + Environment.NewLine;
             }
 
-            foreach (ManagementObject queryObj in baseboardSearcher.Get())
-            {
-                string s = queryObj["SerialNumber"].ToString();
-                string[] ab = s.Split('/');
-                //foreach (string item in ab)
-                //{
-                //    if(item.Contains("BR"))
-                //}
-            }
+            //foreach (ManagementObject queryObj in baseboardSearcher.Get())
+            //{
+            //    string s = queryObj["SerialNumber"].ToString();
+            //    string[] ab = s.Split('/');
+            //    //foreach (string item in ab)
+            //    //{
+            //    //    if(item.Contains("BR"))
+            //    //}
+            //    MessageBox.Show(queryObj["SerialNumber"].ToString());
+            //}
             
         }
 
@@ -135,6 +138,21 @@ namespace AutomacaoMSC
         private void CbIpTeste_CheckedChanged(object sender, EventArgs e)
         {
             SetIpButton(cbIpTeste, tbLog);
+        }
+
+        public void GetAllIps()
+        {
+            // Get host name
+            String strHostName = Dns.GetHostName(), msg="";
+
+            // Find host by name
+            IPHostEntry iphostentry = Dns.GetHostEntry(strHostName);
+            // Enumerate IP addresses
+            foreach (IPAddress ipaddress in iphostentry.AddressList)
+            {
+                msg += ipaddress.ToString() + Environment.NewLine;
+            }
+            MessageBox.Show(msg);
         }
 
     }

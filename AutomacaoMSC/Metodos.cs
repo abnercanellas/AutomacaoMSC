@@ -37,8 +37,17 @@ namespace AutomacaoMSC
                         aux += ":";
                 }
 
-                dic.Add(nic.Name,aux);
-                if(nic.Name.Contains("Ethernet") && nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet) Ethernet = nic.Name;
+                foreach (UnicastIPAddressInformation ip in nic.GetIPProperties().UnicastAddresses)
+                {
+                    if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                       aux += " " + ip.Address.ToString();
+                    }
+                }
+
+                dic.Add(nic.Name, aux );
+
+                if (nic.Name.Contains("Ethernet") && nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet) Ethernet = nic.Name;
             }
 
             return dic;
@@ -141,8 +150,16 @@ namespace AutomacaoMSC
             string userRoot = @"SOFTWARE\Policies\Microsoft\Windows";
             using (RegistryKey key = Registry.LocalMachine.OpenSubKey(userRoot, true))
             {
-                key.DeleteSubKeyTree("WindowsUpdate");
-                AddLog(tbLog, "WSUS deletado");
+                if (key.OpenSubKey("WindowsUpdate") == null)
+                {
+                    MessageBox.Show("WSUS não consta na máquina");
+                    AddLog(tbLog, "Não há o que remover");
+                }
+                else
+                {
+                    key.DeleteSubKeyTree("WindowsUpdate");
+                    AddLog(tbLog, "WSUS deletado");
+                }
             }
 
         }
@@ -165,8 +182,11 @@ namespace AutomacaoMSC
         //instala os programas da pasta \\msc1\d\Automação\Programas
         public static void InstallAll(RichTextBox tbLog)
         {
-            //string dir = @"\\msc1\d\Automação\Programas"+architecture;
             string dir = @"Automação\Programas" + architecture;
+            if (!Directory.Exists(dir))
+            {
+                dir = @"\\msc1\d\Automação\Programas" + architecture;
+            }
             string[] mainDir = Directory.GetDirectories(dir);
             var file = new List<string>();
             string vnc = "";
@@ -177,7 +197,7 @@ namespace AutomacaoMSC
                 {
                     if (exec.ToLower().Contains("setup") || exec.ToLower().Contains("ninite") || exec.ToLower().Contains("serial"))
                     {
-                        if (exec.ToLower().Contains(".exe") || exec.ToLower().Contains(".msi") || exec.ToLower().Contains("serial.txt"))
+                        if (exec.ToLower().Contains(".exe") || exec.ToLower().Contains(".msi") || exec.ToLower().Contains("serial.txt") || exec.ToLower().Contains(".bat"))
                         {
                             if (exec.ToLower().Contains("vnc"))
                             {
