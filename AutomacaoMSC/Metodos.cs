@@ -37,8 +37,17 @@ namespace AutomacaoMSC
                         aux += ":";
                 }
 
-                dic.Add(nic.Name,aux);
-                if(nic.Name.Contains("Ethernet") && nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet) Ethernet = nic.Name;
+                foreach (UnicastIPAddressInformation ip in nic.GetIPProperties().UnicastAddresses)
+                {
+                    if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                       aux += " " + ip.Address.ToString();
+                    }
+                }
+
+                dic.Add(nic.Name, aux );
+
+                if (nic.Name.Contains("Ethernet") && nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet) Ethernet = nic.Name;
             }
 
             return dic;
@@ -177,7 +186,7 @@ namespace AutomacaoMSC
                 {
                     if (exec.ToLower().Contains("setup") || exec.ToLower().Contains("ninite") || exec.ToLower().Contains("serial"))
                     {
-                        if (exec.ToLower().Contains(".exe") || exec.ToLower().Contains(".msi") || exec.ToLower().Contains("serial.txt"))
+                        if (exec.ToLower().Contains(".exe") || exec.ToLower().Contains(".msi") || exec.ToLower().Contains("serial.txt") || exec.ToLower().Contains("install.bat"))
                         {
                             if (exec.ToLower().Contains("vnc"))
                             {
