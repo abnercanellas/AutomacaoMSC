@@ -183,10 +183,7 @@ namespace AutomacaoMSC
         public static void InstallAll(RichTextBox tbLog)
         {
             string dir = @"Automação\Programas" + architecture;
-            if (!Directory.Exists(dir))
-            {
-                dir = @"\\msc1\d\Automação\Programas" + architecture;
-            }
+            //dir = @"\\msc1\d\Automação\Programas" + architecture;
             string[] mainDir = Directory.GetDirectories(dir);
             var file = new List<string>();
             string vnc = "";
@@ -214,7 +211,7 @@ namespace AutomacaoMSC
             if (vnc != "") //executar o vnc com prioridade
             {
                 AddLog(tbLog, "Instalando: " + Directory.GetParent(vnc).Name);
-                FileExec(vnc, "", false);
+                FileExec(vnc, null, false);
             }
             foreach (string exec in file) //executa demais instaladores
             {
@@ -235,7 +232,7 @@ namespace AutomacaoMSC
                     try
                     {
                         AddLog(tbLog, "Instalando: " + Directory.GetParent(exec).Name);
-                        FileExec(exec, "", false);
+                        FileExec(exec, null, false);
                     }
                     catch (System.ComponentModel.Win32Exception e)
                     {
@@ -248,6 +245,14 @@ namespace AutomacaoMSC
 
         public static int FileExec(string filePath, string args, bool isPrompt)
         {
+            if (args == null)
+            {
+                args = (Directory.GetParent(filePath)) + "/args.txt";
+                if (File.Exists(args))
+                {
+                    args = File.ReadAllText(args);
+                }
+            }
             try
             {
                 bool op = true;
