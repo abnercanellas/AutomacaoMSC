@@ -252,6 +252,7 @@ namespace AutomacaoMSC
                 {
                     args = File.ReadAllText(args);
                 }
+                else args = "";
             }
             try
             {
@@ -259,6 +260,7 @@ namespace AutomacaoMSC
                 Process process = new Process();
                 do
                 {
+                    //MessageBox.Show(filePath + " " + args);
                     process.StartInfo.FileName = filePath;
                     process.StartInfo.Arguments = args;
                     process.EnableRaisingEvents = true;
