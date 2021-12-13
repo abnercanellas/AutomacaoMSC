@@ -132,7 +132,8 @@ namespace AutomacaoMSC
 
         private void BtDelWsus_Click(object sender, EventArgs e)
         {
-            RemWsusConfig(tbLog);
+            //RemWsusConfig(tbLog);
+            GetAllIps();
         }
 
         private void CbIpTeste_CheckedChanged(object sender, EventArgs e)

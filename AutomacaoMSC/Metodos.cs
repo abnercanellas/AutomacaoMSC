@@ -197,7 +197,11 @@ namespace AutomacaoMSC
                 {
                     if (exec.ToLower().Contains("setup") || exec.ToLower().Contains("ninite") || exec.ToLower().Contains("serial"))
                     {
+<<<<<<< HEAD
                         if (exec.ToLower().Contains(".exe") || exec.ToLower().Contains(".msi") || exec.ToLower().Contains("serial.txt") || exec.ToLower().Contains(".bat"))
+=======
+                        if (exec.ToLower().Contains(".exe") || exec.ToLower().Contains(".msi") || exec.ToLower().Contains("serial.txt") || exec.ToLower().Contains("install.bat"))
+>>>>>>> 9de10ef8b46fd70e3ed04cfc591a99985655be23
                         {
                             if (exec.ToLower().Contains("vnc"))
                             {
