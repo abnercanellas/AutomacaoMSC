@@ -53,6 +53,23 @@ namespace AutomacaoMSC
             return dic;
         }
 
+
+        public static void InstallNet3(RichTextBox tbLog)
+        {
+            string userRoot = @"SOFTWARE\Policies\Microsoft\Windows";
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(userRoot, true))
+            if (key.OpenSubKey("WindowsUpdate") == null)
+            {
+                msg = FileExec("DISM", "/Online /Enable-Feature /FeatureName:NetFx3 /All", false) == 0 ? "Instalando .NetFramework 3.5" : "Operação cancelada";
+                AddLog(tbLog, msg);
+            }
+            else
+            {
+                MessageBox.Show("WSUS deve ser desabilitado e a maquina reiniciada"+Environment.NewLine+ ".NetF 3.5 é instalado a partir do Win WSUS");
+                AddLog(tbLog, "Cancelado. Favor remover WSUS");
+            }
+        }
+
         //adiciona o evento ao painel de log
         public static void AddLog(RichTextBox tb, string msg)
         {
@@ -254,10 +271,10 @@ namespace AutomacaoMSC
                 }
                 else args = "";
             }
+            Process process = new Process();
             try
             {
                 bool op = true;
-                Process process = new Process();
                 do
                 {
                     //MessageBox.Show(filePath + " " + args);
@@ -289,7 +306,7 @@ namespace AutomacaoMSC
                 Interaction.MsgBox(ex.Message, MsgBoxStyle.OkOnly, MethodBase.GetCurrentMethod().Name);
                 return 1;
             }
-            return 0;
+            return process.ExitCode;
         }
 
         public static bool GetIpStatus()

@@ -41,6 +41,7 @@ namespace AutomacaoMSC
             this.cbPerformance = new System.Windows.Forms.CheckBox();
             this.cbWSUS = new System.Windows.Forms.CheckBox();
             this.tabSysInfo = new System.Windows.Forms.TabPage();
+            this.tbMacs = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbMacs = new System.Windows.Forms.Label();
             this.lbSistema = new System.Windows.Forms.Label();
@@ -53,7 +54,7 @@ namespace AutomacaoMSC
             this.ldDescricao = new System.Windows.Forms.Label();
             this.ImgInpeSobre = new System.Windows.Forms.Panel();
             this.lbMSCSobre = new System.Windows.Forms.Label();
-            this.tbMacs = new System.Windows.Forms.RichTextBox();
+            this.btNet3 = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.tabExecutar.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -201,6 +202,7 @@ namespace AutomacaoMSC
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btNet3);
             this.panel1.Controls.Add(this.btDelWsus);
             this.panel1.Controls.Add(this.btCompleta);
             this.panel1.Controls.Add(this.btLimpar);
@@ -223,7 +225,7 @@ namespace AutomacaoMSC
             this.btDelWsus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btDelWsus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDelWsus.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btDelWsus.Location = new System.Drawing.Point(267, 12);
+            this.btDelWsus.Location = new System.Drawing.Point(211, 12);
             this.btDelWsus.Name = "btDelWsus";
             this.btDelWsus.Size = new System.Drawing.Size(75, 23);
             this.btDelWsus.TabIndex = 10;
@@ -238,7 +240,7 @@ namespace AutomacaoMSC
             this.btCompleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCompleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCompleta.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btCompleta.Location = new System.Drawing.Point(186, 12);
+            this.btCompleta.Location = new System.Drawing.Point(130, 12);
             this.btCompleta.Name = "btCompleta";
             this.btCompleta.Size = new System.Drawing.Size(75, 23);
             this.btCompleta.TabIndex = 3;
@@ -253,7 +255,7 @@ namespace AutomacaoMSC
             this.btLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLimpar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btLimpar.Location = new System.Drawing.Point(105, 12);
+            this.btLimpar.Location = new System.Drawing.Point(49, 12);
             this.btLimpar.Name = "btLimpar";
             this.btLimpar.Size = new System.Drawing.Size(75, 23);
             this.btLimpar.TabIndex = 2;
@@ -346,6 +348,19 @@ namespace AutomacaoMSC
             this.tabSysInfo.Size = new System.Drawing.Size(442, 379);
             this.tabSysInfo.TabIndex = 2;
             this.tabSysInfo.Text = "Sys Info";
+            // 
+            // tbMacs
+            // 
+            this.tbMacs.BackColor = this.BackColor;
+            this.tbMacs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbMacs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMacs.Location = new System.Drawing.Point(59, 103);
+            this.tbMacs.Name = "tbMacs";
+            this.tbMacs.ReadOnly = true;
+            this.tbMacs.Size = new System.Drawing.Size(322, 243);
+            this.tbMacs.TabIndex = 17;
+            this.tbMacs.TabStop = false;
+            this.tbMacs.Text = "";
             // 
             // panel3
             // 
@@ -478,18 +493,20 @@ namespace AutomacaoMSC
             this.lbMSCSobre.Text = "Automação MSC - LIT";
             this.lbMSCSobre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbMacs
+            // btNet3
             // 
-            this.tbMacs.BackColor = this.BackColor;
-            this.tbMacs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbMacs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMacs.Location = new System.Drawing.Point(59, 103);
-            this.tbMacs.Name = "tbMacs";
-            this.tbMacs.ReadOnly = true;
-            this.tbMacs.Size = new System.Drawing.Size(322, 243);
-            this.tbMacs.TabIndex = 17;
-            this.tbMacs.TabStop = false;
-            this.tbMacs.Text = "";
+            this.btNet3.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btNet3.FlatAppearance.BorderSize = 0;
+            this.btNet3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btNet3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btNet3.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btNet3.Location = new System.Drawing.Point(292, 12);
+            this.btNet3.Name = "btNet3";
+            this.btNet3.Size = new System.Drawing.Size(75, 23);
+            this.btNet3.TabIndex = 11;
+            this.btNet3.Text = ".NetF 3.5";
+            this.btNet3.UseVisualStyleBackColor = false;
+            this.btNet3.Click += new System.EventHandler(this.BtNet3_Click);
             // 
             // AutomacaoMSC
             // 
@@ -550,6 +567,7 @@ namespace AutomacaoMSC
         private Label lbMacs;
         private Panel panel3;
         private RichTextBox tbMacs;
+        public Button btNet3;
     }
 }
 

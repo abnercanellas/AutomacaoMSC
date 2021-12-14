@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Management;
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using static AutomacaoMSC.Metodos;
 
@@ -154,6 +153,11 @@ namespace AutomacaoMSC
                 msg += ipaddress.ToString() + Environment.NewLine;
             }
             MessageBox.Show(msg);
+        }
+
+        private void BtNet3_Click(object sender, EventArgs e)
+        {
+            InstallNet3(tbLog);
         }
 
     }
